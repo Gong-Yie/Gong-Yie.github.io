@@ -1,0 +1,24 @@
+/* 绝对定位方案 */
+.post-content,
+.article-container,
+.post-container {
+  position: relative; /* 确保父元素有相对定位 */
+}
+
+#post-info,
+.post-info {
+  position: absolute;
+  bottom: 100px; /* 调整这个值，30px 或 100px 等 */
+  left: 0;
+  right: 0;
+  padding: 0 8%;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+/* 确保文章标题不重叠 */
+.post-title {
+  margin-bottom: 120px; /* 为下面的文章信息留出空间 */
+}

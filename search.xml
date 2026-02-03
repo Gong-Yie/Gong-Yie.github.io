@@ -4,6 +4,62 @@
   
     
     <entry>
+      <title>LangChain学习记录260203</title>
+      <link href="/posts/5d33a59b/"/>
+      <url>/posts/5d33a59b/</url>
+      
+        <content type="html"><![CDATA[<p>为满足GYBot的更新需求，现来学习<a href="https://reference.langchain.com/python/langchain/" title="官网传送">LangChain v1.0</a></p><h2 id="Agents"><a href="#Agents" class="headerlink" title="Agents"></a>Agents</h2><p>Agents能将大模型与工具结合，让大模型经过推理，决定使用工具，来解决问题<br>智能体会一直运行，直到满足停止条件——即模型输出最终结果或达到迭代次数限制。<br><img src="/postdata/LangChain学习记录260203/1.svg" alt="Agents" style="width: 200px; height: 400px;"></p><h3 id="核心组件"><a href="#核心组件" class="headerlink" title="核心组件"></a>核心组件</h3><h4 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h4><p>即大模型，可以看成Agents的大脑</p><h5 id="静态模型"><a href="#静态模型" class="headerlink" title="静态模型"></a>静态模型</h5><p>静态模型在创建智能体时配置一次，并在整个执行过程中保持不变。这是最常见且直接的方法。<br>从 模型标识符字符串 初始化静态模型：  </p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> langchain.agents <span class="keyword">import</span> create_agent</span><br><span class="line"></span><br><span class="line">agent = create_agent(</span><br><span class="line">    <span class="string">&quot;openai:gpt-5&quot;</span>,</span><br><span class="line">    tools=tools</span><br><span class="line">)</span><br></pre></td></tr></table></figure><blockquote><p><strong>提示</strong><br>模型标识符字符串支持自动推断（例如 “gpt-5” 将被推断为 “openai:gpt-5”）。请参考<a href="https://reference.langchain.com/python/langchain/models/#langchain.chat_models.init_chat_model(model_provider)">参考文档</a> 查看完整的模型标识符字符串映射列&gt;&gt;表。<br>官方文档使用OpenAi举例：</p></blockquote><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> langchain.agents <span class="keyword">import</span> create_agent</span><br><span class="line"><span class="keyword">from</span> langchain_openai <span class="keyword">import</span> ChatOpenAI</span><br><span class="line"></span><br><span class="line">model = ChatOpenAI(</span><br><span class="line">    model=<span class="string">&quot;gpt-5&quot;</span>,</span><br><span class="line">    temperature=<span class="number">0.1</span>,</span><br><span class="line">    max_tokens=<span class="number">1000</span>,</span><br><span class="line">    timeout=<span class="number">30</span></span><br><span class="line">    <span class="comment"># ...（其他参数）</span></span><br><span class="line">)</span><br><span class="line">agent = create_agent(model, tools=tools)</span><br></pre></td></tr></table></figure><p>竣工咕咕咕~</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> GYBot制作计划 </category>
+          
+          <category> LangChain </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> LangChain </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>POFP2026邀请赛WP(furryCTF 2025 高校联合新神赛 POFP出的题)</title>
+      <link href="/posts/35249a4e/"/>
+      <url>/posts/35249a4e/</url>
+      
+        <content type="html"><![CDATA[<p>还在本地</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> WP </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+            <tag> Web </tag>
+            
+            <tag> Misc </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>青少年CTF S1 · 2026 公益赛web和misc方向部分wp</title>
       <link href="/posts/ff8b784b/"/>
       <url>/posts/ff8b784b/</url>

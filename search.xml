@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>工伊3.0制作进度20260214</title>
+      <link href="/posts/1e4b397f/"/>
+      <url>/posts/1e4b397f/</url>
+      
+        <content type="html"><![CDATA[<p>本来还在看LangChain，想着怎么把agent和nonebot结合。<br>结果后来发现astrbot内置了agent。<br>于是nonebot添加agent的计划直接腰斩，我将使用更权威的astrbot。<br>工伊3.0以astrbot为框架。目前已添加点赞，表情包制作，盒等功能。<br>同时，聊天方面，添加了识图和语音合成大模型。<br>后续会写一个文档统一介绍一下。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> GYBot制作计划 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Bot </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>POFP2026邀请赛WP(furryCTF 2025 高校联合新神赛 POFP出的题)</title>
       <link href="/posts/35249a4e/"/>
       <url>/posts/35249a4e/</url>

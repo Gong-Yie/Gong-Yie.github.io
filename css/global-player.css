@@ -1,0 +1,93 @@
+#global-player-panel {
+  position: fixed;
+  left: 20px;
+  top: 100px;
+  width: 320px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  z-index: 999;
+  padding: 16px;
+  display: none;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+[data-theme="dark"] #global-player-panel {
+  background: rgba(30, 30, 30, 0.95);
+  color: #eee;
+}
+
+.next-info {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(128, 128, 128, 0.3);
+  font-size: 0.9em;
+}
+
+/* 左侧栏基础样式保持不变，新增以下内容 */
+#global-player-panel.minimized {
+  width: 60px; /* 最小化宽度 */
+  padding: 8px;
+}
+
+#global-player-panel.minimized .panel-header {
+  justify-content: center; /* 按钮居中 */
+}
+
+#global-player-panel.minimized .panel-header button span {
+  display: none; /* 隐藏按钮文字（如果有） */
+}
+
+#global-player-panel.minimized #aplayer-container,
+#global-player-panel.minimized .next-info {
+  display: none; /* 隐藏播放器和下一首信息 */
+}
+
+/* 顶部按钮栏样式 */
+.panel-header {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.panel-header button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: inherit;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.panel-header button:hover {
+  background: rgba(128, 128, 128, 0.2);
+}
+
+/* 深色模式适配 */
+[data-theme="dark"] .panel-header button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* 最小化时，只显示展开按钮，并居中 */
+#global-player-panel.minimized .panel-header {
+  justify-content: center;  /* 按钮居中 */
+}
+
+#global-player-panel.minimized #panel-minimize,
+#global-player-panel.minimized #panel-close {
+  display: none;  /* 隐藏最小化和关闭按钮 */
+}
+
+#global-player-panel.minimized #panel-expand {
+  display: inline-block;  /* 确保展开按钮可见 */
+}
+
+/* 可选：调整最小化时展开按钮的大小和间距 */
+#global-player-panel.minimized .panel-header button {
+  font-size: 20px;
+  padding: 8px;
+}

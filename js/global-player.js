@@ -11,6 +11,11 @@
           <button id="panel-expand" title="展开">></button>
           <button id="panel-close" title="关闭">✕</button>
         </div>
+        <!-- 新增提示文字区域 -->
+        <div class="panel-message">
+          <div class="welcome-message">来点音乐，放松一下</div>
+          <div class="hint-message">播放音乐可能需要梯子魔法</div>
+        </div>
         <div id="aplayer-container"></div>
         <div class="next-info">
           <span style="opacity:0.7;">下一首：</span>
@@ -25,11 +30,21 @@
   // 加载音乐列表
   async function loadAudioList() {
     try {
-      const response = await fetch('/music/list.json');
+      const response = await fetch('https://gong-yie.github.io/musicforblog/list.json');
       if (!response.ok) throw new Error('加载音乐列表失败');
-      return await response.json();
+      let audioList = await response.json();
+
+      const baseUrl = 'https://gong-yie.github.io/musicforblog/';
+      audioList = audioList.map(item => ({
+        name: item.name,
+        artist: item.artist,
+        url: baseUrl + item.url,
+        cover: baseUrl + (item.cover || 'cover/default.jpg'), // 如果封面缺失可给默认
+      }));
+
+      return audioList;
     } catch (e) {
-      console.error(e);
+      console.error('音乐列表加载失败:', e);
       return [];
     }
   }

@@ -91,3 +91,28 @@
   font-size: 20px;
   padding: 8px;
 }
+
+/* 提示文字区域 */
+.panel-message {
+  margin: 8px 0 12px 0;
+  text-align: center;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+  padding-bottom: 8px;
+}
+
+.welcome-message {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.hint-message {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+/* 深色模式适配 */
+[data-theme="dark"] .welcome-message,
+[data-theme="dark"] .hint-message {
+  color: #ddd;
+}

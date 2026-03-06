@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>BlindWaterMark-GUI</title>
+      <link href="/posts/58c7e72c/"/>
+      <url>/posts/58c7e72c/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://github.com/Gong-Yie/BlindWaterMark-GUI">链接直达</a></p><h1 id="BlindWaterMark-GUI"><a href="#BlindWaterMark-GUI" class="headerlink" title="BlindWaterMark-GUI"></a>BlindWaterMark-GUI</h1><p>基于 <a href="https://github.com/chishaxie/BlindWaterMark">chishaxie&#x2F;BlindWaterMark</a> 项目开源的bwmforpy3，使用 <strong>PySide6</strong> 封装开发的现代化、轻量级图形界面（GUI）工具。</p><h2 id="快速开始-Quick-Start"><a href="#快速开始-Quick-Start" class="headerlink" title="快速开始 &#x2F; Quick Start"></a>快速开始 &#x2F; Quick Start</h2><h3 id="1-环境依赖安装-Install"><a href="#1-环境依赖安装-Install" class="headerlink" title="1. 环境依赖安装 (Install)"></a>1. 环境依赖安装 (Install)</h3><p>请确保你的电脑上已经安装了 Python (推荐 Python 3.6+)。在项目根目录下打开终端或命令提示符，运行以下命令安装必备库：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure><h3 id="2-运行工具-Run"><a href="#2-运行工具-Run" class="headerlink" title="2. 运行工具 (Run)"></a>2. 运行工具 (Run)</h3><p>直接运行根目录下的 main.py 即可唤出图形界面：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python main.py</span><br></pre></td></tr></table></figure><h2 id="使用说明-Usage"><a href="#使用说明-Usage" class="headerlink" title="使用说明 &#x2F; Usage"></a>使用说明 &#x2F; Usage</h2><p>本工具分为两大核心功能，可通过顶部标签页切换：</p><h3 id="1-添加盲水印-Encode"><a href="#1-添加盲水印-Encode" class="headerlink" title="1. 添加盲水印 (Encode)"></a>1. 添加盲水印 (Encode)</h3><p>原图路径：你需要添加水印的正常图片。<br>水印路径：你的水印（推荐使用黑底白字的纯黑白图片，效果最佳）。<br>输出路径：合成后保存到哪里（不填则默认保存在项目根目录）。<br><img src="/postdata/BlindWaterMark-GUI/1.png" alt="示例"><br>然后点击运行</p><h3 id="2-提取盲水印-Decode"><a href="#2-提取盲水印-Decode" class="headerlink" title="2. 提取盲水印 (Decode)"></a>2. 提取盲水印 (Decode)</h3><p>原图路径：合成之前、没有加过水印的那张原图<br>水印路径：被加过密的图片。<br>输出路径：提取后保存到哪里（不填则默认保存在项目根目录）。<br><img src="/postdata/BlindWaterMark-GUI/2.png" alt="示例"><br>然后点击运行</p><h2 id="注意事项-Important-Notes"><a href="#注意事项-Important-Notes" class="headerlink" title="注意事项 &#x2F; Important Notes"></a>注意事项 &#x2F; Important Notes</h2><ul><li>bwmforpy3使用的cv2库对中文非常不友好，使用时请注意选择的图片和项目文件<strong>不要处于中文文件夹下</strong></li><li>提取水印时使用的参数要和添加水印时一样</li><li>如果提取bwm(python2)合成的图片(或者勾选兼容Python2随机算法制作的水印图片)，务必勾选兼容Python2随机算法</li><li>不可以进行裁剪或改变分辨率大小，否则由于矩阵像素错位，水印将永久损坏无法提取</li></ul><h2 id="致谢-Credits"><a href="#致谢-Credits" class="headerlink" title="致谢 &#x2F; Credits"></a>致谢 &#x2F; Credits</h2><p>核心算法与基础脚本 (bwmforpy3.py) 作者：<a href="https://github.com/chishaxie/BlindWaterMark">chishaxie</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>算法设计与分析第一章学习</title>
       <link href="/posts/57acf897/"/>
       <url>/posts/57acf897/</url>

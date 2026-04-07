@@ -1,3 +1,4 @@
+https://gong-yie.github.io/posts/2d1016ff/
 https://gong-yie.github.io/posts/58c7e72c/
 https://gong-yie.github.io/about/index.html
 https://gong-yie.github.io/posts/81f853a7/
@@ -13,11 +14,13 @@ https://gong-yie.github.io/link/index.html
 https://gong-yie.github.io/categories/index.html
 https://gong-yie.github.io/tags/index.html
 https://gong-yie.github.io/
+https://gong-yie.github.io/tags/web/
+https://gong-yie.github.io/tags/agent/
 https://gong-yie.github.io/tags/CTF/
 https://gong-yie.github.io/tags/Web/
 https://gong-yie.github.io/tags/Misc/
-https://gong-yie.github.io/tags/Bot/
 https://gong-yie.github.io/tags/butterfly%E9%AD%94%E6%94%B9/
+https://gong-yie.github.io/tags/Bot/
 https://gong-yie.github.io/tags/%E5%85%A5%E9%97%A8/
 https://gong-yie.github.io/tags/404NFD/
 https://gong-yie.github.io/categories/WP/

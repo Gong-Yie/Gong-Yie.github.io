@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <title>BlindWaterMark-GUI</title>
+  
+  <script>
+    try {
+      document.documentElement.setAttribute('data-theme', localStorage.getItem('minimal_color_mode') === 'dark' ? 'dark' : 'light');
+    } catch (error) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  </script>
+  
+<link rel="stylesheet" href="/css/base.css">
+
+</head>
+<body>
+  
+
+
+  <div class="page-background" aria-hidden="true" data-page-background></div>
+  <div class="background-switcher" data-background-switcher>
+    <span class="background-switcher-text">觉得太单调了吗？点一下右边这个按钮-&gt;</span>
+    <button class="background-switcher-button" type="button" data-background-switcher-button aria-label="切换背景">换</button>
+  </div>
+  <script type="application/json" id="background-switcher-data">{"images":["/background/banner.png","/background/%E5%A4%A9%E4%BE%9Dp1.jpg","/background/%E5%A4%A9%E4%BE%9Dp2.jpg","/background/%E5%A4%A9%E4%BE%9Dp3.jpg"],"storageKey":"minimal_background_index"}</script>
+
+
+  <button class="theme-mode-toggle" type="button" data-theme-mode-toggle aria-label="切换夜晚模式">夜</button>
+
+  
+
+<nav class="site-nav" aria-label="主导航">
+  <ul class="site-nav-list">
+    
+      <li class="site-nav-item">
+        
+          <a class="site-nav-link" href="/">主页</a>
+        
+      </li>
+    
+      <li class="site-nav-item">
+        
+          <a class="site-nav-link" href="/search/">搜索</a>
+        
+      </li>
+    
+      <li class="site-nav-item">
+        
+          <a class="site-nav-link" href="/archives/">归档</a>
+        
+      </li>
+    
+      <li class="site-nav-item">
+        
+          <a class="site-nav-link" href="/categories/">分类</a>
+        
+      </li>
+    
+      <li class="site-nav-item">
+        
+          <a class="site-nav-link" href="/tags/">标签</a>
+        
+      </li>
+    
+      <li class="site-nav-item">
+        
+          <a class="site-nav-link" href="/link/">友情链接</a>
+        
+      </li>
+    
+      <li class="site-nav-item">
+        
+          <a class="site-nav-link" href="/about/">关于我</a>
+        
+      </li>
+    
+      <li class="site-nav-item">
+        
+          <button class="site-nav-link site-nav-button" type="button" data-next-stop data-fallback-path="/link/">下一站</button>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+<script type="application/json" id="friend-links-data">[{"name":"工一阵","url":"https://gong-yie.github.io/"},{"name":"Autyui","url":"https://autyui.github.io/"},{"name":"joke","url":"https://simple9656.github.io/"},{"name":"F145H","url":"https://github.com/F145H-F145H/Blog/tree/main"},{"name":"jayq1","url":"https://blog.csdn.net/jayq1?type=lately"},{"name":"Florance","url":"https://www.florance.eu.org/"},{"name":"Florance","url":"https://www.florance.eu.org/"},{"name":"工一阵","url":"https://gong-yie.github.io/"}]</script>
+
+  <main id="app">
+
+<article class="article">
+  <header class="article-header">
+    <h1 class="article-title">BlindWaterMark-GUI</h1>
+    <div class="article-meta">
+      
+        <time datetime="2026-03-06">2026-03-06</time>
+      
+      
+      
+        <span>
+          标签
+          
+            <a href="/tags/CTF/">CTF</a>
+          
+        </span>
+      
+    </div>
+  </header>
+
+  <div class="article-body">
+    <p><a target="_blank" rel="noopener" href="https://github.com/Gong-Yie/BlindWaterMark-GUI">链接直达</a></p>
+<h1 id="BlindWaterMark-GUI"><a href="#BlindWaterMark-GUI" class="headerlink" title="BlindWaterMark-GUI"></a>BlindWaterMark-GUI</h1><p>基于 <a target="_blank" rel="noopener" href="https://github.com/chishaxie/BlindWaterMark">chishaxie&#x2F;BlindWaterMark</a> 项目开源的bwmforpy3，使用 <strong>PySide6</strong> 封装开发的现代化、轻量级图形界面（GUI）工具。</p>
+<h2 id="快速开始-Quick-Start"><a href="#快速开始-Quick-Start" class="headerlink" title="快速开始 &#x2F; Quick Start"></a>快速开始 &#x2F; Quick Start</h2><h3 id="1-环境依赖安装-Install"><a href="#1-环境依赖安装-Install" class="headerlink" title="1. 环境依赖安装 (Install)"></a>1. 环境依赖安装 (Install)</h3><p>请确保你的电脑上已经安装了 Python (推荐 Python 3.6+)。在项目根目录下打开终端或命令提示符，运行以下命令安装必备库：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-运行工具-Run"><a href="#2-运行工具-Run" class="headerlink" title="2. 运行工具 (Run)"></a>2. 运行工具 (Run)</h3><p>直接运行根目录下的 main.py 即可唤出图形界面：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python main.py</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用说明-Usage"><a href="#使用说明-Usage" class="headerlink" title="使用说明 &#x2F; Usage"></a>使用说明 &#x2F; Usage</h2><p>本工具分为两大核心功能，可通过顶部标签页切换：</p>
+<h3 id="1-添加盲水印-Encode"><a href="#1-添加盲水印-Encode" class="headerlink" title="1. 添加盲水印 (Encode)"></a>1. 添加盲水印 (Encode)</h3><p>原图路径：你需要添加水印的正常图片。<br>水印路径：你的水印（推荐使用黑底白字的纯黑白图片，效果最佳）。<br>输出路径：合成后保存到哪里（不填则默认保存在项目根目录）。<br><img src="/postdata/BlindWaterMark-GUI/1.png" alt="示例"><br>然后点击运行</p>
+<h3 id="2-提取盲水印-Decode"><a href="#2-提取盲水印-Decode" class="headerlink" title="2. 提取盲水印 (Decode)"></a>2. 提取盲水印 (Decode)</h3><p>原图路径：合成之前、没有加过水印的那张原图<br>水印路径：被加过密的图片。<br>输出路径：提取后保存到哪里（不填则默认保存在项目根目录）。<br><img src="/postdata/BlindWaterMark-GUI/2.png" alt="示例"><br>然后点击运行</p>
+<h2 id="注意事项-Important-Notes"><a href="#注意事项-Important-Notes" class="headerlink" title="注意事项 &#x2F; Important Notes"></a>注意事项 &#x2F; Important Notes</h2><ul>
+<li>bwmforpy3使用的cv2库对中文非常不友好，使用时请注意选择的图片和项目文件<strong>不要处于中文文件夹下</strong></li>
+<li>提取水印时使用的参数要和添加水印时一样</li>
+<li>如果提取bwm(python2)合成的图片(或者勾选兼容Python2随机算法制作的水印图片)，务必勾选兼容Python2随机算法</li>
+<li>不可以进行裁剪或改变分辨率大小，否则由于矩阵像素错位，水印将永久损坏无法提取</li>
+</ul>
+<h2 id="致谢-Credits"><a href="#致谢-Credits" class="headerlink" title="致谢 &#x2F; Credits"></a>致谢 &#x2F; Credits</h2><p>核心算法与基础脚本 (bwmforpy3.py) 作者：<a target="_blank" rel="noopener" href="https://github.com/chishaxie/BlindWaterMark">chishaxie</a></p>
+
+  </div>
+</article>
+</main>
+  
+<script src="/js/nav.js"></script>
+
+  
+<script src="/js/search.js"></script>
+
+  
+<script src="/js/copy-code.js"></script>
+
+  
+<script src="/js/background-switcher.js"></script>
+
+  
+<script src="/js/theme-mode.js"></script>
+
+</body>
+</html>

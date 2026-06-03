@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <title>butterfly鼠标水波样式</title>
+  
+  <script>
+    try {
+      document.documentElement.setAttribute('data-theme', localStorage.getItem('minimal_color_mode') === 'dark' ? 'dark' : 'light');
+    } catch (error) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  </script>
+  
+<link rel="stylesheet" href="/css/base.css">
+
+</head>
+<body>
+  
+
+
+  <div class="page-background" aria-hidden="true" data-page-background></div>
+  <div class="background-switcher" data-background-switcher>
+    <span class="background-switcher-text">觉得太单调了吗？点一下右边这个按钮-&gt;</span>
+    <button class="background-switcher-button" type="button" data-background-switcher-button aria-label="切换背景">换</button>
+  </div>
+  <script type="application/json" id="background-switcher-data">{"images":["/background/banner.png","/background/%E5%A4%A9%E4%BE%9Dp1.jpg","/background/%E5%A4%A9%E4%BE%9Dp2.jpg","/background/%E5%A4%A9%E4%BE%9Dp3.jpg"],"storageKey":"minimal_background_index"}</script>
+
+
+  <button class="theme-mode-toggle" type="button" data-theme-mode-toggle aria-label="切换夜晚模式">夜</button>
+
+  
+
+<nav class="site-nav" aria-label="主导航">
+  <ul class="site-nav-list">
+    
+      <li class="site-nav-item">
+        
+          <a class="site-nav-link" href="/">主页</a>
+        
+      </li>
+    
+      <li class="site-nav-item">
+        
+          <a class="site-nav-link" href="/search/">搜索</a>
+        
+      </li>
+    
+      <li class="site-nav-item">
+        
+          <a class="site-nav-link" href="/archives/">归档</a>
+        
+      </li>
+    
+      <li class="site-nav-item">
+        
+          <a class="site-nav-link" href="/categories/">分类</a>
+        
+      </li>
+    
+      <li class="site-nav-item">
+        
+          <a class="site-nav-link" href="/tags/">标签</a>
+        
+      </li>
+    
+      <li class="site-nav-item">
+        
+          <a class="site-nav-link" href="/link/">友情链接</a>
+        
+      </li>
+    
+      <li class="site-nav-item">
+        
+          <a class="site-nav-link" href="/about/">关于我</a>
+        
+      </li>
+    
+      <li class="site-nav-item">
+        
+          <button class="site-nav-link site-nav-button" type="button" data-next-stop data-fallback-path="/link/">下一站</button>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+<script type="application/json" id="friend-links-data">[{"name":"工一阵","url":"https://gong-yie.github.io/"},{"name":"Autyui","url":"https://autyui.github.io/"},{"name":"joke","url":"https://simple9656.github.io/"},{"name":"F145H","url":"https://github.com/F145H-F145H/Blog/tree/main"},{"name":"jayq1","url":"https://blog.csdn.net/jayq1?type=lately"},{"name":"Florance","url":"https://www.florance.eu.org/"},{"name":"Florance","url":"https://www.florance.eu.org/"},{"name":"工一阵","url":"https://gong-yie.github.io/"}]</script>
+
+  <main id="app">
+
+<article class="article">
+  <header class="article-header">
+    <h1 class="article-title">butterfly鼠标水波样式</h1>
+    <div class="article-meta">
+      
+        <time datetime="2026-01-20">2026-01-20</time>
+      
+      
+      
+        <span>
+          标签
+          
+            <a href="/tags/butterfly%E9%AD%94%E6%94%B9/">butterfly魔改</a>
+          
+        </span>
+      
+    </div>
+  </header>
+
+  <div class="article-body">
+    <p>在网页上找了半天大佬的鼠标特效，基本上都是烟花特效，爆炸特效，没有找到自己满意的，于是自己用ai跑了一个，本博客使用的鼠标特效就是下文所介绍的</p>
+<h2 id="创建鼠标特效-CSS-文件"><a href="#创建鼠标特效-CSS-文件" class="headerlink" title="创建鼠标特效 CSS 文件"></a>创建鼠标特效 CSS 文件</h2><p>在 <code>/source/css/</code> 目录下创建 <code>mouse-effect.css</code>，如果没有这个文件夹就自己创建一个，粘贴以下代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line">/* 鼠标点击水波纹特效 */</span><br><span class="line">.click-ripple &#123;</span><br><span class="line">  position: fixed;</span><br><span class="line">  border-radius: 50%;</span><br><span class="line">  pointer-events: none;</span><br><span class="line">  z-index: 99999;</span><br><span class="line">  transform: translate(-50%, -50%);</span><br><span class="line">  opacity: 0;</span><br><span class="line">  animation: ripple 1.2s cubic-bezier(0.23, 1, 0.32, 1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@keyframes ripple &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    width: 0;</span><br><span class="line">    height: 0;</span><br><span class="line">    opacity: 0.8;</span><br><span class="line">    border: 2px solid rgba(64, 158, 255, 0.8);</span><br><span class="line">    box-shadow: 0 0 10px rgba(64, 158, 255, 0.5);</span><br><span class="line">  &#125;</span><br><span class="line">  20% &#123;</span><br><span class="line">    opacity: 0.6;</span><br><span class="line">    border: 2px solid rgba(64, 158, 255, 0.7);</span><br><span class="line">    box-shadow: 0 0 20px rgba(64, 158, 255, 0.6);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    width: 500px;</span><br><span class="line">    height: 500px;</span><br><span class="line">    opacity: 0;</span><br><span class="line">    border: 2px solid rgba(64, 158, 255, 0);</span><br><span class="line">    box-shadow: 0 0 30px rgba(64, 158, 255, 0);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 多色水波纹特效 - 可选 */</span><br><span class="line">.multi-color .click-ripple &#123;</span><br><span class="line">  animation: ripple-multi 1.2s cubic-bezier(0.23, 1, 0.32, 1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@keyframes ripple-multi &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    width: 0;</span><br><span class="line">    height: 0;</span><br><span class="line">    opacity: 0.8;</span><br><span class="line">    border: 2px solid rgba(64, 158, 255, 0.8);</span><br><span class="line">    box-shadow: 0 0 10px rgba(64, 158, 255, 0.5);</span><br><span class="line">  &#125;</span><br><span class="line">  33% &#123;</span><br><span class="line">    opacity: 0.6;</span><br><span class="line">    border: 2px solid rgba(103, 194, 58, 0.7);</span><br><span class="line">    box-shadow: 0 0 20px rgba(103, 194, 58, 0.6);</span><br><span class="line">  &#125;</span><br><span class="line">  66% &#123;</span><br><span class="line">    opacity: 0.4;</span><br><span class="line">    border: 2px solid rgba(230, 162, 60, 0.6);</span><br><span class="line">    box-shadow: 0 0 25px rgba(230, 162, 60, 0.5);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    width: 500px;</span><br><span class="line">    height: 500px;</span><br><span class="line">    opacity: 0;</span><br><span class="line">    border: 2px solid rgba(245, 108, 108, 0);</span><br><span class="line">    box-shadow: 0 0 30px rgba(245, 108, 108, 0);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 鼠标移动轨迹效果 - 可选 */</span><br><span class="line">.mouse-trail &#123;</span><br><span class="line">  position: fixed;</span><br><span class="line">  border-radius: 50%;</span><br><span class="line">  pointer-events: none;</span><br><span class="line">  z-index: 99998;</span><br><span class="line">  background: rgba(64, 158, 255, 0.3);</span><br><span class="line">  transform: translate(-50%, -50%);</span><br><span class="line">  animation: trail 0.6s ease-out forwards;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@keyframes trail &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    width: 12px;</span><br><span class="line">    height: 12px;</span><br><span class="line">    opacity: 0.8;</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    width: 0;</span><br><span class="line">    height: 0;</span><br><span class="line">    opacity: 0;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 禁用特效类 */</span><br><span class="line">.no-mouse-effect .click-ripple,</span><br><span class="line">.no-mouse-effect .mouse-trail &#123;</span><br><span class="line">  display: none !important;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建鼠标特效-JavaScript-文件"><a href="#创建鼠标特效-JavaScript-文件" class="headerlink" title="创建鼠标特效 JavaScript 文件"></a>创建鼠标特效 JavaScript 文件</h2><p>在 <code>/source/js/</code> 目录下创建 <code>mouse-effect.js</code>，同上，如果没有 <code>js</code> 目录，请先创建：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br></pre></td><td class="code"><pre><span class="line">// 鼠标点击水波纹特效</span><br><span class="line">(function() &#123;</span><br><span class="line">  // 配置参数</span><br><span class="line">  const config = &#123;</span><br><span class="line">    rippleColor: &#x27;#409EFF&#x27;,  // 水波纹主色（蓝色）</span><br><span class="line">    enableMultiColor: false,  // 是否启用多色效果</span><br><span class="line">    enableTrail: true,        // 是否启用鼠标移动轨迹</span><br><span class="line">    maxRipples: 5,            // 同时显示的最大波纹数量</span><br><span class="line">    trailColor: &#x27;#409EFF&#x27;,    // 轨迹颜色</span><br><span class="line">    trailSize: 12,            // 轨迹大小</span><br><span class="line">    trailDuration: 600,       // 轨迹持续时间（ms）</span><br><span class="line">    enableSound: false,       // 是否启用音效（需要音效文件）</span><br><span class="line">    soundVolume: 0.1,         // 音效音量</span><br><span class="line">    disableOnMobile: true     // 在移动设备上禁用</span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  // 检测移动设备</span><br><span class="line">  function isMobileDevice() &#123;</span><br><span class="line">    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  // 移动设备上禁用</span><br><span class="line">  if (config.disableOnMobile &amp;&amp; isMobileDevice()) &#123;</span><br><span class="line">    return;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  // 创建样式元素</span><br><span class="line">  const style = document.createElement(&#x27;style&#x27;);</span><br><span class="line">  style.textContent = `</span><br><span class="line">    .click-ripple &#123;</span><br><span class="line">      border-color: $&#123;config.rippleColor&#125; !important;</span><br><span class="line">      box-shadow: 0 0 10px $&#123;config.rippleColor&#125; !important;</span><br><span class="line">    &#125;</span><br><span class="line">    .mouse-trail &#123;</span><br><span class="line">      background: $&#123;config.trailColor&#125; !important;</span><br><span class="line">    &#125;</span><br><span class="line">  `;</span><br><span class="line">  document.head.appendChild(style);</span><br><span class="line">  </span><br><span class="line">  // 存储波纹元素</span><br><span class="line">  let ripples = [];</span><br><span class="line">  let trails = [];</span><br><span class="line">  </span><br><span class="line">  // 鼠标点击事件</span><br><span class="line">  document.addEventListener(&#x27;click&#x27;, function(e) &#123;</span><br><span class="line">    // 限制同时显示的波纹数量</span><br><span class="line">    if (ripples.length &gt;= config.maxRipples) &#123;</span><br><span class="line">      const oldRipple = ripples.shift();</span><br><span class="line">      if (oldRipple &amp;&amp; oldRipple.parentNode) &#123;</span><br><span class="line">        oldRipple.parentNode.removeChild(oldRipple);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 创建波纹元素</span><br><span class="line">    const ripple = document.createElement(&#x27;div&#x27;);</span><br><span class="line">    ripple.className = &#x27;click-ripple&#x27;;</span><br><span class="line">    if (config.enableMultiColor) &#123;</span><br><span class="line">      ripple.classList.add(&#x27;multi-color&#x27;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 设置位置</span><br><span class="line">    ripple.style.left = e.clientX + &#x27;px&#x27;;</span><br><span class="line">    ripple.style.top = e.clientY + &#x27;px&#x27;;</span><br><span class="line">    </span><br><span class="line">    // 添加到页面</span><br><span class="line">    document.body.appendChild(ripple);</span><br><span class="line">    ripples.push(ripple);</span><br><span class="line">    </span><br><span class="line">    // 播放音效（可选）</span><br><span class="line">    if (config.enableSound) &#123;</span><br><span class="line">      playClickSound();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 动画结束后移除元素</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">      if (ripple.parentNode) &#123;</span><br><span class="line">        ripple.parentNode.removeChild(ripple);</span><br><span class="line">        ripples = ripples.filter(r =&gt; r !== ripple);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, 1200);</span><br><span class="line">  &#125;);</span><br><span class="line">  </span><br><span class="line">  // 鼠标移动轨迹效果</span><br><span class="line">  if (config.enableTrail) &#123;</span><br><span class="line">    let lastTime = 0;</span><br><span class="line">    const trailInterval = 50; // 轨迹间隔（ms）</span><br><span class="line">    </span><br><span class="line">    document.addEventListener(&#x27;mousemove&#x27;, function(e) &#123;</span><br><span class="line">      const currentTime = Date.now();</span><br><span class="line">      </span><br><span class="line">      // 限制轨迹生成频率</span><br><span class="line">      if (currentTime - lastTime &lt; trailInterval) &#123;</span><br><span class="line">        return;</span><br><span class="line">      &#125;</span><br><span class="line">      lastTime = currentTime;</span><br><span class="line">      </span><br><span class="line">      // 限制同时显示的轨迹数量</span><br><span class="line">      if (trails.length &gt;= 8) &#123;</span><br><span class="line">        const oldTrail = trails.shift();</span><br><span class="line">        if (oldTrail &amp;&amp; oldTrail.parentNode) &#123;</span><br><span class="line">          oldTrail.parentNode.removeChild(oldTrail);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      </span><br><span class="line">      // 创建轨迹元素</span><br><span class="line">      const trail = document.createElement(&#x27;div&#x27;);</span><br><span class="line">      trail.className = &#x27;mouse-trail&#x27;;</span><br><span class="line">      trail.style.left = e.clientX + &#x27;px&#x27;;</span><br><span class="line">      trail.style.top = e.clientY + &#x27;px&#x27;;</span><br><span class="line">      trail.style.width = config.trailSize + &#x27;px&#x27;;</span><br><span class="line">      trail.style.height = config.trailSize + &#x27;px&#x27;;</span><br><span class="line">      </span><br><span class="line">      // 添加到页面</span><br><span class="line">      document.body.appendChild(trail);</span><br><span class="line">      trails.push(trail);</span><br><span class="line">      </span><br><span class="line">      // 动画结束后移除元素</span><br><span class="line">      setTimeout(() =&gt; &#123;</span><br><span class="line">        if (trail.parentNode) &#123;</span><br><span class="line">          trail.parentNode.removeChild(trail);</span><br><span class="line">          trails = trails.filter(t =&gt; t !== trail);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;, config.trailDuration);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  // 播放点击音效（可选）</span><br><span class="line">  function playClickSound() &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">      const audioContext = new (window.AudioContext || window.webkitAudioContext)();</span><br><span class="line">      const oscillator = audioContext.createOscillator();</span><br><span class="line">      const gainNode = audioContext.createGain();</span><br><span class="line">      </span><br><span class="line">      oscillator.connect(gainNode);</span><br><span class="line">      gainNode.connect(audioContext.destination);</span><br><span class="line">      </span><br><span class="line">      oscillator.frequency.value = 523.25; // C5 音符</span><br><span class="line">      oscillator.type = &#x27;sine&#x27;;</span><br><span class="line">      </span><br><span class="line">      gainNode.gain.setValueAtTime(0, audioContext.currentTime);</span><br><span class="line">      gainNode.gain.linearRampToValueAtTime(config.soundVolume, audioContext.currentTime + 0.01);</span><br><span class="line">      gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.2);</span><br><span class="line">      </span><br><span class="line">      oscillator.start(audioContext.currentTime);</span><br><span class="line">      oscillator.stop(audioContext.currentTime + 0.2);</span><br><span class="line">    &#125; catch (e) &#123;</span><br><span class="line">      console.log(&#x27;音效播放失败:&#x27;, e);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  // 添加控制台提示</span><br><span class="line">  console.log(&#x27;%c✨ 鼠标特效已加载 ✨&#x27;, &#x27;color: #409EFF; font-size: 14px; font-weight: bold;&#x27;);</span><br><span class="line">  console.log(&#x27;%c📱 移动设备支持: &#x27; + (!config.disableOnMobile || !isMobileDevice()), &#x27;color: #67C23A;&#x27;);</span><br><span class="line">  </span><br><span class="line">  // 添加到全局对象以便调试</span><br><span class="line">  window.mouseEffect = &#123;</span><br><span class="line">    config: config,</span><br><span class="line">    disable: function() &#123;</span><br><span class="line">      document.body.classList.add(&#x27;no-mouse-effect&#x27;);</span><br><span class="line">      console.log(&#x27;鼠标特效已禁用&#x27;);</span><br><span class="line">    &#125;,</span><br><span class="line">    enable: function() &#123;</span><br><span class="line">      document.body.classList.remove(&#x27;no-mouse-effect&#x27;);</span><br><span class="line">      console.log(&#x27;鼠标特效已启用&#x27;);</span><br><span class="line">    &#125;,</span><br><span class="line">    changeColor: function(color) &#123;</span><br><span class="line">      config.rippleColor = color;</span><br><span class="line">      style.textContent = style.textContent.replace(/#[0-9a-fA-F]&#123;6&#125;/g, color);</span><br><span class="line">      console.log(&#x27;水波纹颜色已更改为: &#x27; + color);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建配置文件（可选）"><a href="#创建配置文件（可选）" class="headerlink" title="创建配置文件（可选）"></a>创建配置文件（可选）</h2><p>在 <code>/source/_data/</code> 目录下创建 <code>mouse-effect.yml</code>（如果没有 <code>_data</code> 目录，请先创建）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 鼠标特效配置</span><br><span class="line">enable: true</span><br><span class="line">ripple_color: &#x27;#409EFF&#x27;  # 水波纹颜色</span><br><span class="line">enable_multi_color: false # 多色效果</span><br><span class="line">enable_trail: true        # 鼠标轨迹</span><br><span class="line">trail_color: &#x27;#409EFF&#x27;    # 轨迹颜色</span><br><span class="line">trail_size: 12            # 轨迹大小</span><br><span class="line">disable_on_mobile: true   # 移动端禁用</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改主题配置文件"><a href="#修改主题配置文件" class="headerlink" title="修改主题配置文件"></a>修改主题配置文件</h2><p>在 <code>_config.butterfly.yml</code> 中添加以下配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">inject: </span><br><span class="line">  head:</span><br><span class="line">    - &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/mouse-effect.css&quot;&gt;</span><br><span class="line">  bottom:</span><br><span class="line">    - &lt;script src=&quot;/js/mouse-effect.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>然后使用hexo三件套部署即可</p>
+<h2 id="自定义调整"><a href="#自定义调整" class="headerlink" title="自定义调整"></a>自定义调整</h2><p>你可以通过修改配置来调整效果：</p>
+<ul>
+<li><p><strong>修改颜色</strong>：在 CSS 中修改 <code>rgba(64, 158, 255, 0.8)</code> 的颜色值</p>
+</li>
+<li><p><strong>调整大小</strong>：修改 CSS 中 <code>width</code> 和 <code>height</code> 的最终值</p>
+</li>
+<li><p><strong>调整速度</strong>：修改 <code>animation-duration</code> 的值</p>
+</li>
+<li><p><strong>禁用特效</strong>：在浏览器控制台中输入 <code>mouseEffect.disable()</code></p>
+</li>
+</ul>
+<p>这个特效会在鼠标点击时产生蓝色的水波纹扩散效果，逐渐消失。如果你想要更丰富的效果，可以启用多色模式或鼠标轨迹效果。</p>
+
+  </div>
+</article>
+</main>
+  
+<script src="/js/nav.js"></script>
+
+  
+<script src="/js/search.js"></script>
+
+  
+<script src="/js/copy-code.js"></script>
+
+  
+<script src="/js/background-switcher.js"></script>
+
+  
+<script src="/js/theme-mode.js"></script>
+
+</body>
+</html>

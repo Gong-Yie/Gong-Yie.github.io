@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <title>Cairn术语表</title>
+  
+  <link rel="icon" href="/img/favicon.ico">
+  <script>
+    try {
+      document.documentElement.setAttribute('data-theme', localStorage.getItem('minimal_color_mode') === 'dark' ? 'dark' : 'light');
+    } catch (error) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  </script>
+  
+<link rel="stylesheet" href="/css/base.css">
+
+</head>
+<body>
+  
+
+
+  <div class="page-background" aria-hidden="true" data-page-background></div>
+  <div class="background-switcher" data-background-switcher>
+    <span class="background-switcher-text">觉得太单调了吗？点一下右边这个按钮-&gt;</span>
+    <button class="background-switcher-button" type="button" data-background-switcher-button aria-label="切换背景">换</button>
+  </div>
+  <script type="application/json" id="background-switcher-data">{"images":["/background/banner.png","/background/%E5%A4%A9%E4%BE%9Dp1.jpg","/background/%E5%A4%A9%E4%BE%9Dp2.jpg","/background/%E5%A4%A9%E4%BE%9Dp3.jpg"],"storageKey":"minimal_background_index"}</script>
+
+
+  <button class="theme-mode-toggle" type="button" data-theme-mode-toggle aria-label="切换夜晚模式">夜</button>
+
+  
+
+<nav class="site-nav" aria-label="主导航">
+  <ul class="site-nav-list">
+    
+      <li class="site-nav-item">
+        
+          <a class="site-nav-link" href="/">主页</a>
+        
+      </li>
+    
+      <li class="site-nav-item">
+        
+          <a class="site-nav-link" href="/search/">搜索</a>
+        
+      </li>
+    
+      <li class="site-nav-item">
+        
+          <a class="site-nav-link" href="/archives/">归档</a>
+        
+      </li>
+    
+      <li class="site-nav-item">
+        
+          <a class="site-nav-link" href="/categories/">分类</a>
+        
+      </li>
+    
+      <li class="site-nav-item">
+        
+          <a class="site-nav-link" href="/tags/">标签</a>
+        
+      </li>
+    
+      <li class="site-nav-item">
+        
+          <a class="site-nav-link" href="/link/">友情链接</a>
+        
+      </li>
+    
+      <li class="site-nav-item">
+        
+          <a class="site-nav-link" href="/about/">关于我</a>
+        
+      </li>
+    
+      <li class="site-nav-item">
+        
+          <button class="site-nav-link site-nav-button" type="button" data-next-stop data-fallback-path="/link/">下一站</button>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+<script type="application/json" id="friend-links-data">[{"name":"工一阵","url":"https://gong-yie.github.io/"},{"name":"Autyui","url":"https://autyui.github.io/"},{"name":"joke","url":"https://simple9656.github.io/"},{"name":"F145H","url":"https://github.com/F145H-F145H/Blog/tree/main"},{"name":"jayq1","url":"https://blog.csdn.net/jayq1?type=lately"},{"name":"Florance","url":"https://www.florance.eu.org/"},{"name":"Florance","url":"https://www.florance.eu.org/"},{"name":"工一阵","url":"https://gong-yie.github.io/"}]</script>
+
+  <main id="app">
+
+<article class="article">
+  <header class="article-header">
+    <h1 class="article-title">Cairn术语表</h1>
+    <div class="article-meta">
+      
+        <time datetime="2026-07-05">2026-07-05</time>
+      
+      
+      
+        <span>
+          标签
+          
+            <a href="/tags/Agent/">Agent</a> / 
+          
+            <a href="/tags/Cairn/">Cairn</a>
+          
+        </span>
+      
+    </div>
+  </header>
+
+  <div class="article-body">
+    <p>这份术语表用“先能理解”的方式解释，不追求教科书定义。gpt老师的说法是叫术语表,具体如下  </p>
+<table>
+<thead>
+<tr>
+<th>英文</th>
+<th>中文理解</th>
+<th>在 Cairn 里是什么意思</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Project</td>
+<td>项目 &#x2F; 任务</td>
+<td>一次完整的问题求解过程，有起点和目标</td>
+</tr>
+<tr>
+<td>Origin</td>
+<td>起点</td>
+<td>初始事实，固定 fact id 是 <code>origin</code></td>
+</tr>
+<tr>
+<td>Goal</td>
+<td>目标</td>
+<td>最终目标，固定 fact id 是 <code>goal</code></td>
+</tr>
+<tr>
+<td>Fact</td>
+<td>事实</td>
+<td>已经确认的信息，存储在 <code>facts</code> 表</td>
+</tr>
+<tr>
+<td>Intent</td>
+<td>意图 &#x2F; 探索方向</td>
+<td>从一些 fact 出发，声明下一步要探索什么</td>
+</tr>
+<tr>
+<td>Hint</td>
+<td>提示</td>
+<td>人类给系统的额外建议，存储在 <code>hints</code> 表</td>
+</tr>
+<tr>
+<td>Fact graph</td>
+<td>事实图</td>
+<td>fact 是节点，intent 表示从哪些 fact 推到新 fact</td>
+</tr>
+<tr>
+<td>Blackboard</td>
+<td>黑板架构</td>
+<td>所有 agent 不直接聊天，只读写同一块共享状态</td>
+</tr>
+<tr>
+<td>Stigmergy</td>
+<td>间接协作</td>
+<td>agent 通过修改环境协作，而不是互相发消息</td>
+</tr>
+<tr>
+<td>Server</td>
+<td>服务端</td>
+<td>提供 API，维护数据库和前端页面</td>
+</tr>
+<tr>
+<td>Router</td>
+<td>路由分组</td>
+<td>FastAPI 里把一类 API 放到一个文件</td>
+</tr>
+<tr>
+<td>Endpoint</td>
+<td>接口地址</td>
+<td>一个具体 API，比如 <code>POST /projects</code></td>
+</tr>
+<tr>
+<td>Database</td>
+<td>数据库</td>
+<td>这里用 SQLite，表结构在 <code>db.py</code></td>
+</tr>
+<tr>
+<td>Dispatcher</td>
+<td>调度器</td>
+<td>读取项目状态，决定什么时候让 worker 干活</td>
+</tr>
+<tr>
+<td>Worker</td>
+<td>工作者</td>
+<td>真正调用 AI 或工具执行任务的执行者</td>
+</tr>
+<tr>
+<td>Backend</td>
+<td>后端</td>
+<td>Python&#x2F;FastAPI 这一层</td>
+</tr>
+<tr>
+<td>Frontend</td>
+<td>前端</td>
+<td>浏览器页面，主要是 <code>server/static/index.html</code></td>
+</tr>
+<tr>
+<td>API</td>
+<td>接口</td>
+<td>前端、dispatcher 和 server 之间通信的方式</td>
+</tr>
+<tr>
+<td>Claim</td>
+<td>认领</td>
+<td>worker 临时占有某个 intent 或 reason 任务</td>
+</tr>
+<tr>
+<td>Lease</td>
+<td>租约</td>
+<td>认领不是永久的，需要 heartbeat 维持</td>
+</tr>
+<tr>
+<td>Heartbeat</td>
+<td>心跳</td>
+<td>worker 定期告诉 server：“我还活着，还在做”</td>
+</tr>
+<tr>
+<td>Timeout</td>
+<td>超时</td>
+<td>太久没心跳或命令太久没结束，就认为有问题</td>
+</tr>
+<tr>
+<td>Bootstrap</td>
+<td>初始化探索</td>
+<td>项目刚开始时自动尝试解决或产出初始 fact</td>
+</tr>
+<tr>
+<td>Reason</td>
+<td>推理下一步</td>
+<td>读完整图，决定创建 intent、完成项目或不动作</td>
+</tr>
+<tr>
+<td>Explore</td>
+<td>执行探索</td>
+<td>执行某个 intent，并把结果写成 fact</td>
+</tr>
+<tr>
+<td>Conclude</td>
+<td>写回结论</td>
+<td>把探索结果落库，通常会生成新的 fact</td>
+</tr>
+<tr>
+<td>Complete</td>
+<td>完成项目</td>
+<td>把项目状态改成 completed，目标达成</td>
+</tr>
+<tr>
+<td>Run</td>
+<td>一次运行记录</td>
+<td>我们加的可观测对象，记录一次任务执行</td>
+</tr>
+<tr>
+<td>Event</td>
+<td>运行事件</td>
+<td>run 内部的阶段、输出、结束信息</td>
+</tr>
+<tr>
+<td>stdout</td>
+<td>标准输出</td>
+<td>worker 正常输出内容</td>
+</tr>
+<tr>
+<td>stderr</td>
+<td>标准错误</td>
+<td>worker 错误或日志输出</td>
+</tr>
+<tr>
+<td>Payload</td>
+<td>结构化数据</td>
+<td>event 里附带的 JSON 信息</td>
+</tr>
+<tr>
+<td>Prompt</td>
+<td>提示词</td>
+<td>发给 LLM worker 的任务说明</td>
+</tr>
+<tr>
+<td>Driver</td>
+<td>适配器</td>
+<td>把统一任务转换成 Claude&#x2F;Codex&#x2F;Pi&#x2F;mock 的调用方式</td>
+</tr>
+<tr>
+<td>Container</td>
+<td>容器</td>
+<td>Docker 隔离环境，每个项目可有自己的 worker 容器</td>
+</tr>
+<tr>
+<td>Docker</td>
+<td>容器工具</td>
+<td>用来运行 worker 环境</td>
+</tr>
+<tr>
+<td>SQLite</td>
+<td>轻量数据库</td>
+<td>本地文件数据库，不需要单独数据库服务</td>
+</tr>
+<tr>
+<td>FastAPI</td>
+<td>Python Web 框架</td>
+<td>Qinyuan server 用它写 API</td>
+</tr>
+<tr>
+<td>Pydantic</td>
+<td>数据校验库</td>
+<td><code>models.py</code> 里定义请求和响应格式</td>
+</tr>
+<tr>
+<td>Click</td>
+<td>命令行库</td>
+<td><code>cli.py</code> 里用它定义 <code>serve</code> 和 <code>dispatch</code> 命令</td>
+</tr>
+<tr>
+<td>Uvicorn</td>
+<td>ASGI 服务器</td>
+<td>用来运行 FastAPI 应用</td>
+</tr>
+<tr>
+<td>YAML</td>
+<td>配置格式</td>
+<td><code>dispatch.example.yaml</code> 等配置文件使用</td>
+</tr>
+<tr>
+<td>pytest</td>
+<td>测试框架</td>
+<td>项目的自动化测试工具</td>
+</tr>
+</tbody></table>
+
+  </div>
+</article>
+</main>
+  
+<script src="/js/nav.js"></script>
+
+  
+<script src="/js/search.js"></script>
+
+  
+<script src="/js/copy-code.js"></script>
+
+  
+<script src="/js/background-switcher.js"></script>
+
+  
+<script src="/js/theme-mode.js"></script>
+
+</body>
+</html>

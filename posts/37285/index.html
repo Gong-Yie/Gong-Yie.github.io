@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <title>Cairn入口</title>
+  
+  <link rel="icon" href="/img/favicon.ico">
+  <script>
+    try {
+      document.documentElement.setAttribute('data-theme', localStorage.getItem('minimal_color_mode') === 'dark' ? 'dark' : 'light');
+    } catch (error) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  </script>
+  
+<link rel="stylesheet" href="/css/base.css">
+
+</head>
+<body>
+  
+
+
+  <div class="page-background" aria-hidden="true" data-page-background></div>
+  <div class="background-switcher" data-background-switcher>
+    <span class="background-switcher-text">觉得太单调了吗？点一下右边这个按钮-&gt;</span>
+    <button class="background-switcher-button" type="button" data-background-switcher-button aria-label="切换背景">换</button>
+  </div>
+  <script type="application/json" id="background-switcher-data">{"images":["/background/banner.png","/background/%E5%A4%A9%E4%BE%9Dp1.jpg","/background/%E5%A4%A9%E4%BE%9Dp2.jpg","/background/%E5%A4%A9%E4%BE%9Dp3.jpg"],"storageKey":"minimal_background_index"}</script>
+
+
+  <button class="theme-mode-toggle" type="button" data-theme-mode-toggle aria-label="切换夜晚模式">夜</button>
+
+  
+
+<nav class="site-nav" aria-label="主导航">
+  <ul class="site-nav-list">
+    
+      <li class="site-nav-item">
+        
+          <a class="site-nav-link" href="/">主页</a>
+        
+      </li>
+    
+      <li class="site-nav-item">
+        
+          <a class="site-nav-link" href="/search/">搜索</a>
+        
+      </li>
+    
+      <li class="site-nav-item">
+        
+          <a class="site-nav-link" href="/archives/">归档</a>
+        
+      </li>
+    
+      <li class="site-nav-item">
+        
+          <a class="site-nav-link" href="/categories/">分类</a>
+        
+      </li>
+    
+      <li class="site-nav-item">
+        
+          <a class="site-nav-link" href="/tags/">标签</a>
+        
+      </li>
+    
+      <li class="site-nav-item">
+        
+          <a class="site-nav-link" href="/link/">友情链接</a>
+        
+      </li>
+    
+      <li class="site-nav-item">
+        
+          <a class="site-nav-link" href="/about/">关于我</a>
+        
+      </li>
+    
+      <li class="site-nav-item">
+        
+          <button class="site-nav-link site-nav-button" type="button" data-next-stop data-fallback-path="/link/">下一站</button>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+<script type="application/json" id="friend-links-data">[{"name":"工一阵","url":"https://gong-yie.github.io/"},{"name":"Autyui","url":"https://autyui.github.io/"},{"name":"joke","url":"https://simple9656.github.io/"},{"name":"F145H","url":"https://github.com/F145H-F145H/Blog/tree/main"},{"name":"jayq1","url":"https://blog.csdn.net/jayq1?type=lately"},{"name":"Florance","url":"https://www.florance.eu.org/"},{"name":"Florance","url":"https://www.florance.eu.org/"},{"name":"工一阵","url":"https://gong-yie.github.io/"}]</script>
+
+  <main id="app">
+
+<article class="article">
+  <header class="article-header">
+    <h1 class="article-title">Cairn入口</h1>
+    <div class="article-meta">
+      
+        <time datetime="2026-07-11">2026-07-11</time>
+      
+      
+      
+        <span>
+          标签
+          
+            <a href="/tags/Agent/">Agent</a> / 
+          
+            <a href="/tags/Cairn/">Cairn</a>
+          
+        </span>
+      
+    </div>
+  </header>
+
+  <div class="article-body">
+    <h2 id="projects-py"><a href="#projects-py" class="headerlink" title="projects.py"></a>projects.py</h2><p>首先来看<code>cairn\src\cairn\server\routers\projects.py</code><br>首先开头注册了一个POST &#x2F;projects 接口。创建成功时返回201。<br><code>@router.post(&quot;/projects&quot;, response_model=ProjectDetail, status_code=201)</code><br>接着传入请求体<code>body: CreateProjectRequest</code>  </p>
+<p>函数中，首先进行数据库连接，并进入上下文管理器。<br><code>with get_conn() as conn:</code><br>接着向 projects 表插入项目基本信息。新项目的状态固定为 active：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">conn.execute(</span><br><span class="line">    <span class="string">&quot;INSERT INTO projects &quot;</span></span><br><span class="line">    <span class="string">&quot;(id, title, status, bootstrap_enabled, created_at) &quot;</span></span><br><span class="line">    <span class="string">&quot;VALUES (?, ?, &#x27;active&#x27;, ?, ?)&quot;</span>,</span><br><span class="line">    (pid, body.title, body.bootstrap_enabled, now),</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>每个项目都会自动创建两条基础事实：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">conn.execute(</span><br><span class="line">    <span class="string">&quot;INSERT INTO facts (id, project_id, description) VALUES (?, ?, ?)&quot;</span>,</span><br><span class="line">    (<span class="string">&quot;origin&quot;</span>, pid, body.origin),</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">conn.execute(</span><br><span class="line">    <span class="string">&quot;INSERT INTO facts (id, project_id, description) VALUES (?, ?, ?)&quot;</span>,</span><br><span class="line">    (<span class="string">&quot;goal&quot;</span>, pid, body.goal),</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>所有数据写入完成后，接口返回一个 ProjectDetail 对象。<br>整体流程：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">接收并验证请求</span><br><span class="line">       ↓</span><br><span class="line">生成项目 ID 和创建时间</span><br><span class="line">       ↓</span><br><span class="line">写入项目基本信息</span><br><span class="line">       ↓</span><br><span class="line">写入 origin 和 goal</span><br><span class="line">       ↓</span><br><span class="line">写入可选提示</span><br><span class="line">       ↓</span><br><span class="line">构造 ProjectDetail</span><br><span class="line">       ↓</span><br><span class="line">返回 HTTP 201 响应</span><br></pre></td></tr></table></figure>
+
+<h2 id="app-py-和-Router"><a href="#app-py-和-Router" class="headerlink" title="app.py 和 Router"></a>app.py 和 Router</h2><p>接下来查看 <code>cairn\src\cairn\server\app.py</code>。</p>
+<p><code>app.py</code> 是 Cairn 服务端的总入口，主要负责创建 FastAPI 应用，并把分散在各个 router 文件中的接口组装起来。创建项目的具体业务逻辑并不在 <code>app.py</code> 中，而是在 <code>routers/projects.py</code> 中。</p>
+<p><code>app.py</code> 首先导入各个接口模块：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> cairn.server.routers <span class="keyword">import</span> export, hints, intents, projects, settings</span><br></pre></td></tr></table></figure>
+
+<p>然后通过 <code>include_router()</code> 将这些模块中的接口注册到 FastAPI 主应用：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">app.include_router(settings.router)</span><br><span class="line">app.include_router(projects.router)</span><br><span class="line">app.include_router(hints.router)</span><br><span class="line">app.include_router(intents.router)</span><br><span class="line">app.include_router(export.router)</span><br></pre></td></tr></table></figure>
+
+<p>以 <code>projects.py</code> 为例，文件中的接口由 <code>projects.router</code> 收集：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@router.post(<span class="params"><span class="string">&quot;/projects&quot;</span>, response_model=ProjectDetail, status_code=<span class="number">201</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">create_project</span>(<span class="params">body: CreateProjectRequest</span>):</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+
+<p>但仅仅定义接口还不够。执行下面这行代码后，项目接口才会被加入 FastAPI 应用的路由表：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.include_router(projects.router)</span><br></pre></td></tr></table></figure>
+
+<p>因此，<code>projects.py</code> 能被外部访问，需要经过两个步骤：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">projects.py 定义接口</span><br><span class="line">       ↓</span><br><span class="line">projects.router 收集接口</span><br><span class="line">       ↓</span><br><span class="line">app.include_router(projects.router)</span><br><span class="line">       ↓</span><br><span class="line">接口注册到 FastAPI 主应用</span><br><span class="line">       ↓</span><br><span class="line">外部可以通过 HTTP 请求访问</span><br></pre></td></tr></table></figure>
+
+<p><code>include_router()</code> 的作用是注册接口，而不是执行业务。服务器启动时，它只负责建立路由关系；只有客户端真正发送 <code>POST /projects</code> 请求时，FastAPI 才会执行 <code>create_project()</code>。</p>
+<p>Cairn 当前注册了五个 router：</p>
+<table>
+<thead>
+<tr>
+<th>Router</th>
+<th>文件</th>
+<th>主要职责</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>settings.router</code></td>
+<td><code>settings.py</code></td>
+<td>配置相关接口</td>
+</tr>
+<tr>
+<td><code>projects.router</code></td>
+<td><code>projects.py</code></td>
+<td>项目相关接口</td>
+</tr>
+<tr>
+<td><code>hints.router</code></td>
+<td><code>hints.py</code></td>
+<td>提示相关接口</td>
+</tr>
+<tr>
+<td><code>intents.router</code></td>
+<td><code>intents.py</code></td>
+<td>意图相关接口</td>
+</tr>
+<tr>
+<td><code>export.router</code></td>
+<td><code>export.py</code></td>
+<td>数据导出相关接口</td>
+</tr>
+</tbody></table>
+<p>除此之外，<code>app.py</code> 还直接定义了首页接口，并通过 <code>app.mount()</code> 提供静态文件。这些内容不属于上面的 router 模块。</p>
+<h2 id="serve-和-dispatch"><a href="#serve-和-dispatch" class="headerlink" title="serve 和 dispatch"></a>serve 和 dispatch</h2><p>接下来查看 <code>cairn\src\cairn\cli.py</code> 中的两个命令：<code>serve</code> 和 <code>dispatch</code>。</p>
+<p>这两个命令会启动不同的程序，承担的职责也不同：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cairn serve     → 启动 API server，保存状态并提供接口</span><br><span class="line">cairn dispatch  → 启动 dispatcher，选择任务并调用 worker</span><br></pre></td></tr></table></figure>
+
+<h3 id="serve：启动-API-server"><a href="#serve：启动-API-server" class="headerlink" title="serve：启动 API server"></a>serve：启动 API server</h3><p><code>serve</code> 命令先配置 SQLite 数据库路径，然后导入 FastAPI 应用，最后交给 Uvicorn 启动：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">serve</span>(<span class="params">host: <span class="built_in">str</span>, port: <span class="built_in">int</span>, db_path: <span class="built_in">str</span>, log_level: <span class="built_in">str</span>, access_log: <span class="built_in">bool</span></span>):</span><br><span class="line">    db.configure(Path(db_path))</span><br><span class="line">    <span class="keyword">from</span> cairn.server.app <span class="keyword">import</span> app</span><br><span class="line"></span><br><span class="line">    uvicorn.run(</span><br><span class="line">        app,</span><br><span class="line">        host=host,</span><br><span class="line">        port=port,</span><br><span class="line">        log_level=log_level.lower(),</span><br><span class="line">        access_log=access_log,</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+
+<p>因此，<code>cairn serve</code> 主要负责：</p>
+<ul>
+<li>启动 HTTP 服务；</li>
+<li>保存和读取项目状态；</li>
+<li>提供创建项目、查询项目、更新 intent 等 API；</li>
+<li>接收网页、用户或 dispatcher 发来的请求。</li>
+</ul>
+<p>它本身不会启动调度循环，也不会主动选择 AI worker。</p>
+<h3 id="dispatch：启动调度器"><a href="#dispatch：启动调度器" class="headerlink" title="dispatch：启动调度器"></a>dispatch：启动调度器</h3><p><code>dispatch</code> 命令要求提供 dispatcher 配置文件，然后创建并运行 <code>DispatcherLoop</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">dispatch</span>(<span class="params">config_path: Path, once: <span class="built_in">bool</span>, startup_healthcheck_only: <span class="built_in">bool</span>, log_level: <span class="built_in">str</span></span>):</span><br><span class="line">    configure_logging(log_level, bare=startup_healthcheck_only)</span><br><span class="line">    loop = DispatcherLoop(config_path)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> startup_healthcheck_only:</span><br><span class="line">        loop.run_startup_healthchecks_only()</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    loop.run(once=once)</span><br></pre></td></tr></table></figure>
+
+<p><code>DispatcherLoop</code> 会读取配置中的 server 地址，并创建一个 <code>CairnClient</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">self</span>.config = DispatchConfig.load(config_path)</span><br><span class="line"><span class="variable language_">self</span>.client = CairnClient(<span class="variable language_">self</span>.config.server)</span><br></pre></td></tr></table></figure>
+
+<p><code>CairnClient</code> 通过 HTTP 请求访问 server，例如查询项目和读取设置：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">response = <span class="variable language_">self</span>._session().get(<span class="variable language_">self</span>._url(<span class="string">&quot;/projects&quot;</span>), timeout=<span class="variable language_">self</span>._timeout)</span><br><span class="line">response = <span class="variable language_">self</span>._session().get(<span class="variable language_">self</span>._url(<span class="string">&quot;/settings&quot;</span>), timeout=<span class="variable language_">self</span>._timeout)</span><br></pre></td></tr></table></figure>
+
+<p>这说明 dispatcher 不会直接读写 server 的 SQLite 数据库，而是通过 API 与 server 协作。</p>
+<p>dispatcher 的大致工作流程如下：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">通过 API 查询项目状态</span><br><span class="line">       ↓</span><br><span class="line">判断哪些项目可以继续推进</span><br><span class="line">       ↓</span><br><span class="line">选择 bootstrap、explore 或 reason 等任务</span><br><span class="line">       ↓</span><br><span class="line">选择可用 worker</span><br><span class="line">       ↓</span><br><span class="line">调用 worker 执行任务</span><br><span class="line">       ↓</span><br><span class="line">通过 API 把结果写回 server</span><br></pre></td></tr></table></figure>
+
+<h3 id="只启动-server，AI-会自动工作吗？"><a href="#只启动-server，AI-会自动工作吗？" class="headerlink" title="只启动 server，AI 会自动工作吗？"></a>只启动 server，AI 会自动工作吗？</h3><p>不会。</p>
+<p>只启动 server 后，API 和数据库可以正常工作，用户可以创建或查询项目，但没有 dispatcher 主动扫描项目、选择任务和调用 worker，所以 AI 不会自动推进项目。</p>
+<p>可以把 server 理解为保存状态的工作台，而 dispatcher 才是不断检查工作台并分配任务的人。</p>
+<h3 id="只启动-dispatcher，没有-server-会怎样？"><a href="#只启动-dispatcher，没有-server-会怎样？" class="headerlink" title="只启动 dispatcher，没有 server 会怎样？"></a>只启动 dispatcher，没有 server 会怎样？</h3><p>dispatcher 会尝试访问配置中的 server 地址。没有 server 时，它无法读取设置、获取项目或写回任务结果，因此不能推进任何项目。</p>
+<p>在普通循环模式下，请求失败会被记录，dispatcher 等待一个调度间隔后继续重试：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">except</span> requests.RequestException <span class="keyword">as</span> exc:</span><br><span class="line">    LOG.warning(<span class="string">&quot;dispatcher server request failed ...&quot;</span>)</span><br><span class="line">    time.sleep(<span class="variable language_">self</span>.config.runtime.interval)</span><br><span class="line">    <span class="keyword">continue</span></span><br></pre></td></tr></table></figure>
+
+<p>如果使用 <code>--once</code> 只运行一轮，请求异常会继续抛出，命令通常会直接失败退出。</p>
+<p>因此，正常运行时应该先保证 server 可访问，再启动 dispatcher。</p>
+<h3 id="为什么-server-不直接调用-AI？"><a href="#为什么-server-不直接调用-AI？" class="headerlink" title="为什么 server 不直接调用 AI？"></a>为什么 server 不直接调用 AI？</h3><p>server 的核心职责是维护项目状态和提供稳定的 API。如果把 AI 调用也放进 server，请求处理就会和耗时较长、资源占用较高的 worker 执行耦合在一起。</p>
+<p>将它们拆开后，可以获得几个好处：</p>
+<ul>
+<li>API server 不会因为 AI 任务运行时间较长而被阻塞；</li>
+<li>worker 的模型配置、密钥和运行环境可以由 dispatcher 单独管理；</li>
+<li>调度失败不会直接导致 API server 停止服务；</li>
+<li>server 可以专注保证状态读写和接口行为的一致性。</li>
+</ul>
+<h3 id="为什么-dispatcher-要作为单独进程？"><a href="#为什么-dispatcher-要作为单独进程？" class="headerlink" title="为什么 dispatcher 要作为单独进程？"></a>为什么 dispatcher 要作为单独进程？</h3><p>dispatcher 是一个长期运行的调度循环。它会定期查询项目、维护任务状态、使用线程池执行任务，并管理 worker 或容器。这类工作与处理 HTTP 请求的 server 有不同的运行方式和资源需求。</p>
+<p>拆成独立进程后，server 和 dispatcher 可以分别启动、停止、重启和配置。即使 dispatcher 或某个 worker 出现故障，server 中已经保存的项目状态仍然可以继续访问。</p>
+<p>二者的关系可以总结为：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">用户或网页</span><br><span class="line">    ↓ HTTP</span><br><span class="line">server：保存状态、提供 API</span><br><span class="line">    ↑ HTTP</span><br><span class="line">dispatcher：读取状态、选择任务、调用 worker、写回结果</span><br><span class="line">    ↓</span><br><span class="line">AI worker</span><br></pre></td></tr></table></figure>
+
+<p>最重要的一句话是：<code>server</code> 管状态，<code>dispatcher</code> 管推进。</p>
+
+  </div>
+</article>
+</main>
+  
+<script src="/js/nav.js"></script>
+
+  
+<script src="/js/search.js"></script>
+
+  
+<script src="/js/copy-code.js"></script>
+
+  
+<script src="/js/background-switcher.js"></script>
+
+  
+<script src="/js/theme-mode.js"></script>
+
+</body>
+</html>

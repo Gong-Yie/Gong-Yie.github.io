@@ -5,9 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   
-  <title>Agent记忆</title>
+  <title>Agent记忆 | 工一阵</title>
   
   <link rel="icon" href="/img/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script>
     try {
       document.documentElement.setAttribute('data-theme', localStorage.getItem('minimal_color_mode') === 'dark' ? 'dark' : 'light');
@@ -18,76 +21,93 @@
   
 <link rel="stylesheet" href="/css/base.css">
 
+  
+<link rel="stylesheet" href="/css/concept.css">
+
 </head>
 <body>
   
 
 
   <div class="page-background" aria-hidden="true" data-page-background></div>
-  <div class="background-switcher" data-background-switcher>
-    <span class="background-switcher-text">觉得太单调了吗？点一下右边这个按钮-&gt;</span>
-    <button class="background-switcher-button" type="button" data-background-switcher-button aria-label="切换背景">换</button>
-  </div>
   <script type="application/json" id="background-switcher-data">{"images":["/background/banner.png","/background/%E5%A4%A9%E4%BE%9Dp1.jpg","/background/%E5%A4%A9%E4%BE%9Dp2.jpg","/background/%E5%A4%A9%E4%BE%9Dp3.jpg"],"storageKey":"minimal_background_index"}</script>
 
 
-  <button class="theme-mode-toggle" type="button" data-theme-mode-toggle aria-label="切换夜晚模式">夜</button>
-
+  <div class="concept-scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
   
 
-<nav class="site-nav" aria-label="主导航">
-  <ul class="site-nav-list">
+<header class="concept-header" data-site-header>
+  <a class="concept-brand" href="/" aria-label="返回主页">
+    <span class="concept-brand-mark">GY</span>
+    <span>工一阵</span>
+  </a>
+
+  <button class="concept-menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" data-menu-toggle>菜单</button>
+
+  <nav class="site-nav concept-nav" id="site-navigation" aria-label="主导航" data-site-menu>
+    <ul class="site-nav-list concept-nav-list">
+      
+        <li class="site-nav-item concept-nav-item">
+          
+            <a class="site-nav-link concept-nav-link" href="/">主页</a>
+          
+        </li>
+      
+        <li class="site-nav-item concept-nav-item">
+          
+            <a class="site-nav-link concept-nav-link" href="/search/">搜索</a>
+          
+        </li>
+      
+        <li class="site-nav-item concept-nav-item">
+          
+            <a class="site-nav-link concept-nav-link" href="/archives/">归档</a>
+          
+        </li>
+      
+        <li class="site-nav-item concept-nav-item">
+          
+            <a class="site-nav-link concept-nav-link" href="/categories/">分类</a>
+          
+        </li>
+      
+        <li class="site-nav-item concept-nav-item">
+          
+            <a class="site-nav-link concept-nav-link" href="/tags/">标签</a>
+          
+        </li>
+      
+        <li class="site-nav-item concept-nav-item">
+          
+            <a class="site-nav-link concept-nav-link" href="/link/">友情链接</a>
+          
+        </li>
+      
+        <li class="site-nav-item concept-nav-item">
+          
+            <a class="site-nav-link concept-nav-link" href="/about/">关于我</a>
+          
+        </li>
+      
+        <li class="site-nav-item concept-nav-item">
+          
+            <button class="site-nav-link site-nav-button concept-nav-link" type="button" data-next-stop data-fallback-path="/link/">下一站</button>
+          
+        </li>
+      
+    </ul>
+  </nav>
+
+  <div class="concept-header-actions">
     
-      <li class="site-nav-item">
-        
-          <a class="site-nav-link" href="/">主页</a>
-        
-      </li>
+      <button class="concept-background-toggle" type="button" data-background-switcher-button aria-label="切换背景" aria-pressed="false">背景</button>
     
-      <li class="site-nav-item">
-        
-          <a class="site-nav-link" href="/search/">搜索</a>
-        
-      </li>
-    
-      <li class="site-nav-item">
-        
-          <a class="site-nav-link" href="/archives/">归档</a>
-        
-      </li>
-    
-      <li class="site-nav-item">
-        
-          <a class="site-nav-link" href="/categories/">分类</a>
-        
-      </li>
-    
-      <li class="site-nav-item">
-        
-          <a class="site-nav-link" href="/tags/">标签</a>
-        
-      </li>
-    
-      <li class="site-nav-item">
-        
-          <a class="site-nav-link" href="/link/">友情链接</a>
-        
-      </li>
-    
-      <li class="site-nav-item">
-        
-          <a class="site-nav-link" href="/about/">关于我</a>
-        
-      </li>
-    
-      <li class="site-nav-item">
-        
-          <button class="site-nav-link site-nav-button" type="button" data-next-stop data-fallback-path="/link/">下一站</button>
-        
-      </li>
-    
-  </ul>
-</nav>
+    <div class="concept-mode-switch" role="group" aria-label="颜色模式">
+      <button type="button" data-theme-option="light" aria-pressed="true">日</button>
+      <button type="button" data-theme-option="dark" aria-pressed="false">夜</button>
+    </div>
+  </div>
+</header>
 
 <script type="application/json" id="friend-links-data">[{"name":"工一阵","url":"https://gong-yie.github.io/"},{"name":"Autyui","url":"https://autyui.github.io/"},{"name":"joke","url":"https://simple9656.github.io/"},{"name":"F145H","url":"https://github.com/F145H-F145H/Blog/tree/main"},{"name":"jayq1","url":"https://blog.csdn.net/jayq1?type=lately"},{"name":"Florance","url":"https://www.florance.eu.org/"},{"name":"Florance","url":"https://www.florance.eu.org/"},{"name":"工一阵","url":"https://gong-yie.github.io/"}]</script>
 
@@ -105,9 +125,9 @@
         <span>
           标签
           
-            <a href="/tags/Agent/">Agent</a> / 
+            <a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a> / 
           
-            <a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a>
+            <a href="/tags/Agent/">Agent</a>
           
         </span>
       
@@ -122,6 +142,23 @@
   </div>
 </article>
 </main>
+  <footer class="concept-footer">
+  <div class="concept-footer-top">
+    <p>继续往前。</p>
+    <a href="/archives/">打开全部归档 <span aria-hidden="true">&#8599;</span></a>
+  </div>
+  <div class="concept-footer-bottom">
+    <span>GONG-YIE</span>
+    <span>CODE / CTF / AGENT / MUSIC</span>
+    <div class="concept-footer-year">
+      <span class="concept-footer-hint">有些年份，值得多点几次。</span>
+      <button type="button" data-easter-egg data-target="/gugu/" aria-label="年份">2026</button>
+    </div>
+  </div>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
   
 <script src="/js/nav.js"></script>
 
@@ -136,6 +173,9 @@
 
   
 <script src="/js/theme-mode.js"></script>
+
+  
+<script src="/js/home.js"></script>
 
 </body>
 </html>

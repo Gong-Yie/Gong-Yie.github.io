@@ -5,7 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   
+  <title>工一阵</title>
+  
   <link rel="icon" href="/img/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script>
     try {
       document.documentElement.setAttribute('data-theme', localStorage.getItem('minimal_color_mode') === 'dark' ? 'dark' : 'light');
@@ -16,149 +21,356 @@
   
 <link rel="stylesheet" href="/css/base.css">
 
+  
+<link rel="stylesheet" href="/css/concept.css">
+
 </head>
 <body>
   
 
 
   <div class="page-background" aria-hidden="true" data-page-background></div>
-  <div class="background-switcher" data-background-switcher>
-    <span class="background-switcher-text">觉得太单调了吗？点一下右边这个按钮-&gt;</span>
-    <button class="background-switcher-button" type="button" data-background-switcher-button aria-label="切换背景">换</button>
-  </div>
   <script type="application/json" id="background-switcher-data">{"images":["/background/banner.png","/background/%E5%A4%A9%E4%BE%9Dp1.jpg","/background/%E5%A4%A9%E4%BE%9Dp2.jpg","/background/%E5%A4%A9%E4%BE%9Dp3.jpg"],"storageKey":"minimal_background_index"}</script>
 
 
-  <button class="theme-mode-toggle" type="button" data-theme-mode-toggle aria-label="切换夜晚模式">夜</button>
-
+  <div class="concept-scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
   
 
-<nav class="site-nav" aria-label="主导航">
-  <ul class="site-nav-list">
+<header class="concept-header" data-site-header>
+  <a class="concept-brand" href="/" aria-label="返回主页">
+    <span class="concept-brand-mark">GY</span>
+    <span>工一阵</span>
+  </a>
+
+  <button class="concept-menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" data-menu-toggle>菜单</button>
+
+  <nav class="site-nav concept-nav" id="site-navigation" aria-label="主导航" data-site-menu>
+    <ul class="site-nav-list concept-nav-list">
+      
+        <li class="site-nav-item concept-nav-item">
+          
+            <a class="site-nav-link concept-nav-link" href="/">主页</a>
+          
+        </li>
+      
+        <li class="site-nav-item concept-nav-item">
+          
+            <a class="site-nav-link concept-nav-link" href="/search/">搜索</a>
+          
+        </li>
+      
+        <li class="site-nav-item concept-nav-item">
+          
+            <a class="site-nav-link concept-nav-link" href="/archives/">归档</a>
+          
+        </li>
+      
+        <li class="site-nav-item concept-nav-item">
+          
+            <a class="site-nav-link concept-nav-link" href="/categories/">分类</a>
+          
+        </li>
+      
+        <li class="site-nav-item concept-nav-item">
+          
+            <a class="site-nav-link concept-nav-link" href="/tags/">标签</a>
+          
+        </li>
+      
+        <li class="site-nav-item concept-nav-item">
+          
+            <a class="site-nav-link concept-nav-link" href="/link/">友情链接</a>
+          
+        </li>
+      
+        <li class="site-nav-item concept-nav-item">
+          
+            <a class="site-nav-link concept-nav-link" href="/about/">关于我</a>
+          
+        </li>
+      
+        <li class="site-nav-item concept-nav-item">
+          
+            <button class="site-nav-link site-nav-button concept-nav-link" type="button" data-next-stop data-fallback-path="/link/">下一站</button>
+          
+        </li>
+      
+    </ul>
+  </nav>
+
+  <div class="concept-header-actions">
     
-      <li class="site-nav-item">
-        
-          <a class="site-nav-link" href="/">主页</a>
-        
-      </li>
+      <button class="concept-background-toggle" type="button" data-background-switcher-button aria-label="切换背景" aria-pressed="false">背景</button>
     
-      <li class="site-nav-item">
-        
-          <a class="site-nav-link" href="/search/">搜索</a>
-        
-      </li>
-    
-      <li class="site-nav-item">
-        
-          <a class="site-nav-link" href="/archives/">归档</a>
-        
-      </li>
-    
-      <li class="site-nav-item">
-        
-          <a class="site-nav-link" href="/categories/">分类</a>
-        
-      </li>
-    
-      <li class="site-nav-item">
-        
-          <a class="site-nav-link" href="/tags/">标签</a>
-        
-      </li>
-    
-      <li class="site-nav-item">
-        
-          <a class="site-nav-link" href="/link/">友情链接</a>
-        
-      </li>
-    
-      <li class="site-nav-item">
-        
-          <a class="site-nav-link" href="/about/">关于我</a>
-        
-      </li>
-    
-      <li class="site-nav-item">
-        
-          <button class="site-nav-link site-nav-button" type="button" data-next-stop data-fallback-path="/link/">下一站</button>
-        
-      </li>
-    
-  </ul>
-</nav>
+    <div class="concept-mode-switch" role="group" aria-label="颜色模式">
+      <button type="button" data-theme-option="light" aria-pressed="true">日</button>
+      <button type="button" data-theme-option="dark" aria-pressed="false">夜</button>
+    </div>
+  </div>
+</header>
 
 <script type="application/json" id="friend-links-data">[{"name":"工一阵","url":"https://gong-yie.github.io/"},{"name":"Autyui","url":"https://autyui.github.io/"},{"name":"joke","url":"https://simple9656.github.io/"},{"name":"F145H","url":"https://github.com/F145H-F145H/Blog/tree/main"},{"name":"jayq1","url":"https://blog.csdn.net/jayq1?type=lately"},{"name":"Florance","url":"https://www.florance.eu.org/"},{"name":"Florance","url":"https://www.florance.eu.org/"},{"name":"工一阵","url":"https://gong-yie.github.io/"}]</script>
 
   <main id="app">
 
-<section class="home">
-  <div class="home-layout">
-    <div class="home-main">
-      <div class="home-intro">
-        <h1 class="home-title">Blog from 工一阵</h1>
+<div class="concept-home">
+  <section class="concept-hero" aria-labelledby="concept-hero-title">
+    <div class="concept-hero-content">
+      <div class="concept-hero-topline">
+        <p>GONG-YIE / PERSONAL ARCHIVE</p>
+        <p>CODE  / AGENT / MUSIC</p>
+      </div>
+      <h1 id="concept-hero-title">工一阵</h1>
+      <div class="concept-hero-bottom">
+        <p>写代码、做题、折腾一些有用或没用的东西。</p>
         
-          <p class="home-description">写代码、做题、折腾一些有用或没用的东西。</p>
+          <a class="concept-latest-link" href="/posts/37285/">
+            <span>最新文章</span>
+            <strong>Cairn入口</strong>
+            <span aria-hidden="true">&#8599;</span>
+          </a>
         
       </div>
-
-      
-        <section class="home-recent" aria-labelledby="home-recent-title">
-          <h2 class="home-section-title" id="home-recent-title">最近写的</h2>
-          <ol class="home-post-list">
-            
-              <li class="home-post-item">
-                <time class="home-post-date" datetime="2026-07-11">2026-07-11</time>
-                <a class="home-post-link" href="/posts/37285/">Cairn入口</a>
-              </li>
-            
-              <li class="home-post-item">
-                <time class="home-post-date" datetime="2026-07-06">2026-07-06</time>
-                <a class="home-post-link" href="/posts/13211/">Agent记忆</a>
-              </li>
-            
-              <li class="home-post-item">
-                <time class="home-post-date" datetime="2026-07-05">2026-07-05</time>
-                <a class="home-post-link" href="/posts/45344/">Cairn介绍导读</a>
-              </li>
-            
-              <li class="home-post-item">
-                <time class="home-post-date" datetime="2026-07-05">2026-07-05</time>
-                <a class="home-post-link" href="/posts/92795/">Cairn术语表</a>
-              </li>
-            
-              <li class="home-post-item">
-                <time class="home-post-date" datetime="2026-07-05">2026-07-05</time>
-                <a class="home-post-link" href="/posts/15631/">Cairn拆解学习</a>
-              </li>
-            
-          </ol>
-        </section>
-      
-
-      
-        
-          <a class="home-status home-status-link" href="/gugu/">咕咕咕~</a>
-        
-      
     </div>
+  </section>
 
-    
-      <aside class="home-activity" aria-labelledby="home-activity-title">
-        <div class="home-activity-header">
-          <h2 class="home-section-title home-activity-title" id="home-activity-title">
-            我最近在干啥？
-          </h2>
-        </div>
-        <div class="home-activity-body article-body">
-          <p><a href="/posts/92026/index.html">钦原项目开发</a><br><span class="md-energy-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="30" aria-label="Progress 30%" style="--progress-value: 30%;"><span class="md-energy-progress-track"><span class="md-energy-progress-fill"><span class="md-energy-progress-end" aria-hidden="true"><span class="md-energy-progress-bubble"></span><span class="md-energy-progress-bubble"></span><span class="md-energy-progress-bubble"></span></span></span></span><span class="md-energy-progress-value">30%</span></span></p>
-<p>工伊维护开发<br><span class="md-energy-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0.01" aria-label="Progress 0.01%" style="--progress-value: 0.01%;"><span class="md-energy-progress-track"><span class="md-energy-progress-fill"><span class="md-energy-progress-end" aria-hidden="true"><span class="md-energy-progress-bubble"></span><span class="md-energy-progress-bubble"></span><span class="md-energy-progress-bubble"></span></span></span></span><span class="md-energy-progress-value">0.01%</span></span></p>
+  
+    <div class="concept-marquee" aria-hidden="true">
+      <div class="concept-marquee-track">
+        
+          <div class="concept-marquee-set">
+            
+              <span>AGENT MEMORY</span><i></i>
+            
+              <span>WEB SECURITY</span><i></i>
+            
+              <span>CTF NOTES？</span><i></i>
+            
+              <span>VOCALOID</span><i></i>
+            
+              <span>LONG-TERM PROJECTS</span><i></i>
+            
+          </div>
+        
+          <div class="concept-marquee-set">
+            
+              <span>AGENT MEMORY</span><i></i>
+            
+              <span>WEB SECURITY</span><i></i>
+            
+              <span>CTF NOTES？</span><i></i>
+            
+              <span>VOCALOID</span><i></i>
+            
+              <span>LONG-TERM PROJECTS</span><i></i>
+            
+          </div>
+        
+      </div>
+    </div>
+  
 
+  
+    <section class="concept-writing concept-shell" aria-labelledby="concept-writing-title">
+      <header class="concept-section-heading">
+        <p>RECENT WRITING</p>
+        <h2 id="concept-writing-title">最近写的</h2>
+        <span>关于 Agent与长期项目。</span>
+      </header>
+
+      <div class="concept-article-grid" data-article-grid>
+        
+          
+          <a class="concept-article-card is-active" href="/posts/37285/" data-article-card>
+            
+              <img src="/background/%E5%A4%A9%E4%BE%9Dp1.jpg" alt="Cairn入口" loading="lazy" decoding="async" width="5079" height="2953">
+            
+            <span class="concept-article-index">01</span>
+            <div class="concept-article-copy">
+              <time datetime="2026-07-11">2026.07.11</time>
+              <h3>Cairn入口</h3>
+              <p>projects.py首先来看cairn\src\cairn\server\routers\projects.py首先开头注册了一个POST &amp;...</p>
+            </div>
+          </a>
+        
+          
+          <a class="concept-article-card" href="/posts/13211/" data-article-card>
+            
+              <img src="/background/%E5%A4%A9%E4%BE%9Dp2.jpg" alt="Agent记忆" loading="lazy" decoding="async" width="5079" height="2953">
+            
+            <span class="concept-article-index">02</span>
+            <div class="concept-article-copy">
+              <time datetime="2026-07-06">2026.07.06</time>
+              <h3>Agent记忆</h3>
+              <p>最近在研究Agent，也是我一直以来的一个疑惑 目前主流Agent的设计都是将大模型拟人，去给大模型手脚，去以人的工作思路去工作。这确实一个值得...</p>
+            </div>
+          </a>
+        
+          
+          <a class="concept-article-card" href="/posts/45344/" data-article-card>
+            
+              <img src="/background/%E5%A4%A9%E4%BE%9Dp3.jpg" alt="Cairn介绍导读" loading="lazy" decoding="async" width="5079" height="2953">
+            
+            <span class="concept-article-index">03</span>
+            <div class="concept-article-copy">
+              <time datetime="2026-07-05">2026.07.05</time>
+              <h3>Cairn介绍导读</h3>
+              <p>这份导读不是逐字翻译英文 README，而是先建立一张“能看懂项目”的地图。 Cairn想解决什么问题？Cairn是用来解决复杂的开阔空间的不能...</p>
+            </div>
+          </a>
+        
+      </div>
+    </section>
+  
+
+  <section class="concept-manifesto" aria-label="博客宣言">
+    <p class="concept-manifesto-title">
+      代码之外，
+      
+        <span class="concept-inline-image concept-reveal-image"><img src="/background/%E5%A4%A9%E4%BE%9Dp1.jpg" alt="" loading="lazy" decoding="async" width="5079" height="2953"></span>
+      
+      仍有天空。
+    </p>
+    <p class="concept-manifesto-copy">下次见面，记得带点面包屑，算是给鸽子的补偿吧。</p>
+  </section>
+
+  
+    <section class="concept-projects" aria-labelledby="concept-projects-title">
+      <div class="concept-projects-stage">
+        <header class="concept-projects-intro">
+          <p>ONGOING PROJECTS</p>
+          <h2 id="concept-projects-title">正在构建</h2>
+          <span>每一个项目，都比发布日期更重要。</span>
+        </header>
+
+        <div class="concept-project-stack" data-project-stack>
+          
+            <article class="concept-project-card">
+              <div class="concept-project-visual concept-reveal-image">
+                <img src="/background/%E5%A4%A9%E4%BE%9Dp2.jpg" alt="钦原" loading="lazy" decoding="async" width="5079" height="2953">
+              </div>
+              <div class="concept-project-content">
+                <div>
+                  <span>AGENT / SECURITY</span>
+                  <h3>钦原</h3>
+                </div>
+                <p>完全自动化的Agent。</p>
+                <div class="concept-project-bottom">
+                  <div class="concept-project-meter" aria-label="钦原进度 30%">
+                    <span style="width: 30%"></span>
+                    <b>30%</b>
+                  </div>
+                  
+                    <a href="/posts/92026/" aria-label="查看钦原">&#8599;</a>
+                  
+                </div>
+              </div>
+            </article>
+          
+            <article class="concept-project-card">
+              <div class="concept-project-visual concept-reveal-image">
+                <img src="/background/banner.png" alt="GYBot" loading="lazy" decoding="async" width="2894" height="1470">
+              </div>
+              <div class="concept-project-content">
+                <div>
+                  <span>MEMORY / CONVERSATION</span>
+                  <h3>GYBot</h3>
+                </div>
+                <p>关于艾宾浩斯与长记忆的契合。</p>
+                <div class="concept-project-bottom">
+                  <div class="concept-project-meter" aria-label="GYBot进度 64%">
+                    <span style="width: 64%"></span>
+                    <b>维护中</b>
+                  </div>
+                  
+                    <a href="/categories/GYBot%E5%88%B6%E4%BD%9C%E8%AE%A1%E5%88%92/" aria-label="查看GYBot">&#8599;</a>
+                  
+                </div>
+              </div>
+            </article>
+          
+            <article class="concept-project-card">
+              <div class="concept-project-visual concept-reveal-image">
+                <img src="/background/%E5%A4%A9%E4%BE%9Dp1.jpg" alt="博客重构" loading="lazy" decoding="async" width="5079" height="2953">
+              </div>
+              <div class="concept-project-content">
+                <div>
+                  <span>WRITING / WEB</span>
+                  <h3>博客重构</h3>
+                </div>
+                <p>减少装饰，保留性格，让阅读本身成为页面的重心。</p>
+                <div class="concept-project-bottom">
+                  <div class="concept-project-meter" aria-label="博客重构进度 82%">
+                    <span style="width: 82%"></span>
+                    <b>持续中</b>
+                  </div>
+                  
+                    <a href="/archives/" aria-label="查看博客重构">&#8599;</a>
+                  
+                </div>
+              </div>
+            </article>
+          
         </div>
-      </aside>
-    
-  </div>
-</section>
+      </div>
+    </section>
+  
+
+  
+    <section class="concept-notes concept-shell" aria-labelledby="concept-notes-title" data-carousel>
+      <header class="concept-notes-heading">
+        <p>CURRENT NOTES</p>
+        <h2 id="concept-notes-title">最近在想</h2>
+      </header>
+
+      <div class="concept-notes-carousel">
+        <div class="concept-notes-track">
+          
+            <article class="concept-note-slide is-current" data-slide>
+              <blockquote>“关于艾宾浩斯与长记忆的契合。”</blockquote>
+              <p>正在学：Agent Memory</p>
+            </article>
+          
+            <article class="concept-note-slide" data-slide hidden>
+              <blockquote>“简约而不简单。”</blockquote>
+              <p>正在做：博客重构</p>
+            </article>
+          
+            <article class="concept-note-slide" data-slide hidden>
+              <blockquote>“黑板架构到底怎么设计。”</blockquote>
+              <p>正在研究：Cairn</p>
+            </article>
+          
+        </div>
+        <div class="concept-carousel-controls">
+          <span><b data-slide-current>01</b> / 03</span>
+          <div>
+            <button type="button" aria-label="上一条" data-slide-prev>&#8592;</button>
+            <button type="button" aria-label="下一条" data-slide-next>&#8594;</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+</div>
 </main>
+  <footer class="concept-footer">
+  <div class="concept-footer-top">
+    <p>继续往前。</p>
+    <a href="/archives/">打开全部归档 <span aria-hidden="true">&#8599;</span></a>
+  </div>
+  <div class="concept-footer-bottom">
+    <span>GONG-YIE</span>
+    <span>CODE / CTF / AGENT / MUSIC</span>
+    <div class="concept-footer-year">
+      <span class="concept-footer-hint">有些年份，值得多点几次。</span>
+      <button type="button" data-easter-egg data-target="/gugu/" aria-label="年份">2026</button>
+    </div>
+  </div>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
   
 <script src="/js/nav.js"></script>
 
@@ -173,6 +385,9 @@
 
   
 <script src="/js/theme-mode.js"></script>
+
+  
+<script src="/js/home.js"></script>
 
 </body>
 </html>

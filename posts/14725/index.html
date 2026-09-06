@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  <title>制作了一个Agent学习笔记 | 工一阵</title>
+  
+  <link rel="icon" href="/img/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    try {
+      document.documentElement.setAttribute('data-theme', localStorage.getItem('minimal_color_mode') === 'dark' ? 'dark' : 'light');
+    } catch (error) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  </script>
+  
+<link rel="stylesheet" href="/css/base.css">
+
+  
+<link rel="stylesheet" href="/css/concept.css">
+
+</head>
+<body>
+  
+
+
+  <div class="page-background" aria-hidden="true" data-page-background></div>
+  <script type="application/json" id="background-switcher-data">{"images":["/background/banner.webp","/background/%E5%A4%A9%E4%BE%9Dp1.webp","/background/%E5%A4%A9%E4%BE%9Dp2.webp","/background/%E5%A4%A9%E4%BE%9Dp3.webp"],"storageKey":"minimal_background_index"}</script>
+
+
+  <div class="concept-scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
+  
+
+<header class="concept-header" data-site-header>
+  <a class="concept-brand" href="/" aria-label="返回主页">
+    <span class="concept-brand-mark">GY</span>
+    <span>工一阵</span>
+  </a>
+
+  <button class="concept-menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" data-menu-toggle>菜单</button>
+
+  <nav class="site-nav concept-nav" id="site-navigation" aria-label="主导航" data-site-menu>
+    <ul class="site-nav-list concept-nav-list">
+      
+        <li class="site-nav-item concept-nav-item">
+          
+            <a class="site-nav-link concept-nav-link" href="/">主页</a>
+          
+        </li>
+      
+        <li class="site-nav-item concept-nav-item">
+          
+            <a class="site-nav-link concept-nav-link" href="/search/">搜索</a>
+          
+        </li>
+      
+        <li class="site-nav-item concept-nav-item">
+          
+            <a class="site-nav-link concept-nav-link" href="/archives/">归档</a>
+          
+        </li>
+      
+        <li class="site-nav-item concept-nav-item">
+          
+            <a class="site-nav-link concept-nav-link" href="/categories/">分类</a>
+          
+        </li>
+      
+        <li class="site-nav-item concept-nav-item">
+          
+            <a class="site-nav-link concept-nav-link" href="/tags/">标签</a>
+          
+        </li>
+      
+        <li class="site-nav-item concept-nav-item">
+          
+            <a class="site-nav-link concept-nav-link" href="/link/">友情链接</a>
+          
+        </li>
+      
+        <li class="site-nav-item concept-nav-item">
+          
+            <a class="site-nav-link concept-nav-link" href="/about/">关于我</a>
+          
+        </li>
+      
+        <li class="site-nav-item concept-nav-item">
+          
+            <button class="site-nav-link site-nav-button concept-nav-link" type="button" data-next-stop data-fallback-path="/link/">下一站</button>
+          
+        </li>
+      
+    </ul>
+  </nav>
+
+  <div class="concept-header-actions">
+    
+      <button class="concept-background-toggle" type="button" data-background-switcher-button aria-label="切换背景" aria-pressed="false">背景</button>
+    
+    <div class="concept-mode-switch" role="group" aria-label="颜色模式">
+      <button type="button" data-theme-option="light" aria-pressed="true">日</button>
+      <button type="button" data-theme-option="dark" aria-pressed="false">夜</button>
+    </div>
+  </div>
+</header>
+
+<script type="application/json" id="friend-links-data">[{"name":"工一阵","url":"https://gong-yie.github.io/"},{"name":"Autyui","url":"https://autyui.github.io/"},{"name":"joke","url":"https://simple9656.github.io/"},{"name":"F145H","url":"https://github.com/F145H-F145H/Blog/tree/main"},{"name":"jayq1","url":"https://blog.csdn.net/jayq1?type=lately"},{"name":"Florance","url":"https://www.florance.eu.org/"},{"name":"Florance","url":"https://www.florance.eu.org/"},{"name":"工一阵","url":"https://gong-yie.github.io/"}]</script>
+
+  <main id="app">
+
+<article class="article">
+  <header class="article-header">
+    <h1 class="article-title">制作了一个Agent学习笔记</h1>
+    <div class="article-meta">
+      
+        <time datetime="2026-09-07">2026-09-07</time>
+      
+      
+      
+        <span>
+          标签
+          
+            <a href="/tags/Agent/">Agent</a>
+          
+        </span>
+      
+    </div>
+  </header>
+
+  <div class="article-body">
+    <p>最近做了一个Agent学习笔记，自己搜了一堆资料，然后让AI整理了一下，仓库在这<a target="_blank" rel="noopener" href="https://github.com/Gong-Yie/Agent-Learning">https://github.com/Gong-Yie/Agent-Learning</a></p>
+<p>我为什么突然想着做这么个笔记？</p>
+<p>这个项目并不是我一时兴起，突然想要来做的。很多问题纠缠了我很久，却又在我试图开口时，一时语塞，不知从何讲起。于是积积攒攒，堆了一本笔记，到头来，扉页上只写了一句话：在这个AI时代，我们学习的基础知识，到底还有用吗？  </p>
+<h3 id="谷歌效应，以及它的“AI升级版”"><a href="#谷歌效应，以及它的“AI升级版”" class="headerlink" title="谷歌效应，以及它的“AI升级版”"></a>谷歌效应，以及它的“AI升级版”</h3><p>2011年，哥伦比亚大学的心理学家贝齐·斯帕罗（Betsy Sparrow）团队做了一个有趣的实验，发现了“谷歌效应”。什么是“谷歌效应”？团队招募了一批实验参与者，他们把参与者分成了两组，然后让参与者向电脑中输入一些琐碎的陈述句（例如，“鸵鸟的眼睛比脑子大”）。其中一组参与者被告知电脑会保存他们输入的内容，另一组则被告知内容会被立即清除。最后团队分别对两组的参与者进行了记忆考察，结果发现那些认为信息会被保存的参与者，对信息本身的记忆效果明显更差。但他们对于信息被保存在哪个文件夹的记忆，却比另一组人更清晰。  </p>
+<p>斯帕罗将这种现象命名为“谷歌效应”。她认为，互联网已经成为我们大脑的一个“交互记忆”（Transactive Memory）系统。我们的大脑把搜索引擎当成了那个“什么都知道的伙伴”，于是放心地将记忆具体内容的“工作”外包了出去。  </p>
+<p>而今天，AI对我们也施加着同样的效应，而且程度更深、范围更广。它不再只是帮我们记住什么，而是直接帮我们想出答案——从代码补全到文案生成，从逻辑推理到创意启发。我们越来越多地跳过自己先想一想的步骤，直接奔向AI的回应。AI正在改变人类的思考方式，人类正在被AI“驯化”。  </p>
+<h3 id="AI改变后的思考方式，是好事还是坏事？"><a href="#AI改变后的思考方式，是好事还是坏事？" class="headerlink" title="AI改变后的思考方式，是好事还是坏事？"></a>AI改变后的思考方式，是好事还是坏事？</h3><p>这种改变，究竟是进步还是隐患？  </p>
+<p>回看编程语言的发展史：从汇编到C，从C++到Java，从Python到Rust——每一次语言革新，都降低了编程的门槛，也提升了生产力。那么，AI是否算得上下一场语言革命？“vibe coding”是不是就是“自然语言编程”的雏形？当我们可以用日常话语指挥机器做事，编译器与解释器的概念是否会被彻底重写？  </p>
+<p>这里其实还牵扯了另外一个问题：纵览人类文明，从哲学发端，堆起知识的地基；继而数学与天文诞生，接着是物理、化学、生物，再到如今庞杂的交叉学科。知识越积越厚，后人是否需要把所有前人的成果完完整整地重学一遍？会不会有那么一天，一个人穷尽一生也学不完“入门”所需的基础——那时，人类文明的进步是否就撞上了一堵无法翻越的墙？  </p>
+<p>如果AI能帮我们跳过部分重复性认知劳动，让大脑从记忆和机械推导中解放出来，去专注更高阶的创造与判断，那或许，改变并非坏事，而是必要的进化。就像我们不再手工计算微积分，也不再用纸带写程序——工具迭代，本质上是让人的精力流向更值得的地方。  </p>
+<h3 id="改变并不代表无用——为什么我们仍要学C语言"><a href="#改变并不代表无用——为什么我们仍要学C语言" class="headerlink" title="改变并不代表无用——为什么我们仍要学C语言"></a>改变并不代表无用——为什么我们仍要学C语言</h3><p>话又说回来，就算再怎么革新，再怎么改变，计算机学者学习的第一步，依然是C语言。  </p>
+<p>这不是怀旧，也并非过时。C语言之所以经久不衰，不是因为它最好用，而是因为它最透明。它最接近系统底层，让你理解内存、指针的作用、栈与堆的边界；它又足够简洁，没有过多的语法糖，迫使你去理解程序到底是如何被执行的。  </p>
+<p>AI可以替你写出一个排序函数，但如果你不知道内存布局，你就看不出它为什么会在特定数据量下崩溃；AI可以替你生成一段网络请求代码，但如果你不懂字节序、不懂缓冲区，你就无法理解为什么同样的代码在嵌入式设备上会失效。基础知识的真正价值，不在于背下它，而在于它塑造了你对系统的直觉——这种直觉，是你在面对AI给出的答案时，能够判断“它对不对”“它好不好”“它为什么这么写”的唯一依据。  </p>
+<p>更进一步说，AI时代最稀缺的能力，不是“知道答案”，而是“提出正确的问题”和“判断答案的可靠性”。而这两者，都依赖于你对底层逻辑的切身理解。没有这些地基，你就只能被动接受AI的输出，像一个盲人信任引路者——而有了地基，你才能和AI平等对话，甚至反过来驾驭它。  </p>
+<p>所以，我写这本笔记，不是要对抗AI，也不是要歌颂旧时代。我只是想在自己被“驯化”之前，再碰一点底层东西，多嚼一点是一点。哪怕未来编程再也不需要人类。  </p>
+<p>这大概就是我在这个时代，最后的挣扎。  </p>
+
+  </div>
+</article>
+</main>
+  <footer class="concept-footer">
+  <div class="concept-footer-top">
+    <p>继续往前。</p>
+    <a href="/archives/">打开全部归档 <span aria-hidden="true">&#8599;</span></a>
+  </div>
+  <div class="concept-footer-bottom">
+    <span>GONG-YIE</span>
+    <span>CODE / CTF / AGENT / MUSIC</span>
+    <div class="concept-footer-year">
+      <span class="concept-footer-hint">有些年份，值得多点几次。</span>
+      <button type="button" data-easter-egg data-target="/gugu/" aria-label="年份">2026</button>
+    </div>
+  </div>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  
+<script src="/js/nav.js"></script>
+
+  
+<script src="/js/search.js"></script>
+
+  
+<script src="/js/copy-code.js"></script>
+
+  
+<script src="/js/background-switcher.js"></script>
+
+  
+<script src="/js/theme-mode.js"></script>
+
+  
+<script src="/js/home.js"></script>
+
+</body>
+</html>
